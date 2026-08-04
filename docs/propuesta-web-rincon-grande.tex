@@ -1,0 +1,220 @@
+% Website proposal - Rincón Grande and The Wild Run
+% Compile with tectonic or XeLaTeX.
+
+\documentclass[10pt,oneside]{article}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\geometry{
+  a4paper,
+  top=18mm,
+  bottom=17mm,
+  left=18mm,
+  right=18mm,
+  headheight=14pt,
+  headsep=8mm,
+  footskip=10mm
+}
+
+\newcommand{\assetpath}{docs/assets/}
+\IfFileExists{docs/assets/rincon-cover.png}{}{\renewcommand{\assetpath}{assets/}}
+\newcommand{\fontpath}{docs/fonts/}
+\IfFileExists{docs/fonts/RedRose-Regular.ttf}{}{\renewcommand{\fontpath}{fonts/}}
+
+\definecolor{Cream}{HTML}{F6F1E7}
+\definecolor{Forest}{HTML}{2F4B39}
+\definecolor{Burgundy}{HTML}{371617}
+\definecolor{Text}{HTML}{27302A}
+\definecolor{Stone}{HTML}{77776D}
+\definecolor{Sand}{HTML}{D5B584}
+\definecolor{Line}{HTML}{D9D0C0}
+\definecolor{White}{HTML}{FFFFFF}
+
+\IfFontExistsTF{Verdana}
+  {\setmainfont{Verdana}}
+  {\setmainfont{DejaVu Sans}}
+\newfontfamily\displayfont[
+  Path=\fontpath,
+  BoldFont=RedRose-Bold.ttf,
+  ItalicFont=RedRose-Light.ttf
+]{RedRose-Regular.ttf}
+
+\pagecolor{Cream}
+\color{Text}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.2em, topsep=0.25em, parsep=0pt}
+\emergencystretch=1.5em
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Forest,
+  urlcolor=Forest,
+  pdftitle={Website proposal - Rincón Grande and The Wild Run},
+  pdfauthor={Nicolas Ceron},
+  pdfsubject={Website design, development and technical SEO scope}
+}
+
+\newcommand{\eyebrow}[1]{%
+  {\sffamily\fontsize{7}{8}\selectfont\bfseries\color{Forest}\MakeUppercase{#1}}%
+}
+
+\newcommand{\brandline}{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\displayfont\fontsize{13.5}{14.5}\selectfont\color{Forest}\textbf{RINCÓN GRANDE}} &
+    {\displayfont\fontsize{13.5}{14.5}\selectfont\color{Burgundy}\textbf{THE WILD RUN}}\\[-1pt]
+    \multicolumn{2}{@{}l@{}}{\sffamily\fontsize{6.5}{8}\selectfont\color{Stone}\MakeUppercase{Two destination websites}}%
+  \end{tabularx}%
+}
+
+\newtcolorbox{pricebox}{
+  enhanced,
+  colback=Burgundy,
+  colframe=Burgundy,
+  boxrule=0pt,
+  arc=0mm,
+  left=5mm,
+  right=5mm,
+  top=4mm,
+  bottom=4mm
+}
+
+\newtcolorbox{softbox}{
+  enhanced,
+  colback=White,
+  colframe=Line,
+  boxrule=0.35pt,
+  arc=1mm,
+  left=5mm,
+  right=5mm,
+  top=4mm,
+  bottom=4mm
+}
+
+\newcommand{\scopeitem}[3]{%
+  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+    {\displayfont\fontsize{17}{18}\selectfont\color{Sand}\textbf{#1}} &
+    {\sffamily\fontsize{10.5}{12}\selectfont\bfseries\color{Forest}#2}\\[-1pt]
+    & {\sffamily\fontsize{8.6}{10.5}\selectfont\color{Text}#3}
+  \end{tabularx}
+  \vspace{2.6mm}\par
+  {\color{Line}\rule{\textwidth}{0.35pt}}\par\vspace{2.6mm}
+}
+
+\newcommand{\pagefooter}[1]{%
+  \vfill
+  {\color{Line}\rule{\textwidth}{0.35pt}}\par\vspace{1.6mm}
+  {\sffamily\fontsize{6.5}{8}\selectfont\color{Stone}
+    NICOLAS CERON\hfill WEBSITE PROPOSAL\hfill #1}%
+}
+
+\fancypagestyle{proposal}{
+  \fancyhf{}
+  \fancyhead[L]{\sffamily\fontsize{6.5}{8}\selectfont\bfseries\color{Forest}RINCÓN GRANDE / THE WILD RUN}
+  \fancyhead[R]{\sffamily\fontsize{6.5}{8}\selectfont\color{Stone}WEBSITE PROPOSAL}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Cover page
+% -----------------------------------------------------------------------------
+\thispagestyle{empty}
+\brandline
+\vspace{9mm}
+
+\eyebrow{Website proposal}\par\vspace{3mm}
+{\displayfont\fontsize{30}{33}\selectfont\color{Forest}
+  Website design for\\[-1mm]
+  Rincón Grande and The Wild Run\par}
+
+\vspace{4mm}
+{\sffamily\fontsize{10}{13}\selectfont\color{Burgundy}
+  A brand-led, responsive website package for two destination brands, built from the supplied brochure, imagery, logo and typography.\par}
+
+\vspace{7mm}
+{\sffamily\fontsize{6.5}{8}\selectfont\color{Stone}\MakeUppercase{Visual reference from supplied brand material}\par\vspace{1.5mm}}
+\noindent\includegraphics[width=\textwidth,height=64mm]{\assetpath rincon-cover.png}
+
+\vspace{5mm}
+\begin{tabularx}{\textwidth}{@{}X X X@{}}
+  {\eyebrow{Projects}} & {\eyebrow{Prepared by}} & {\eyebrow{Issued}}\\[1.5mm]
+  {\sffamily\fontsize{8.8}{10}\selectfont\color{Burgundy}Rincón Grande / The Wild Run} &
+  {\sffamily\fontsize{8.8}{10}\selectfont\color{Burgundy}Nicolas Ceron} &
+  {\sffamily\fontsize{8.8}{10}\selectfont\color{Burgundy}04 August 2026}
+\end{tabularx}
+
+\vspace{5mm}
+\begin{pricebox}
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\sffamily\fontsize{7}{8}\selectfont\bfseries\color{Sand}\MakeUppercase{Fee per website - USD equivalent}} &
+    {\displayfont\fontsize{23}{24}\selectfont\color{White}\textbf{\$436.54 USD}}\\[1mm]
+    {\sffamily\fontsize{7.5}{9}\selectfont\color{White}COP reference: \$1,400,000 COP | Rincón Grande or The Wild Run} & {}
+  \end{tabularx}
+\end{pricebox}
+
+\newpage
+\pagestyle{proposal}
+
+% -----------------------------------------------------------------------------
+% Scope page
+% -----------------------------------------------------------------------------
+\eyebrow{Scope of work}\par\vspace{2mm}
+{\displayfont\fontsize{25}{28}\selectfont\color{Forest}What is included\par}
+\vspace{2mm}
+{\sffamily\fontsize{9}{11}\selectfont\color{Burgundy}
+  The same package is applied to each destination website: Rincón Grande and The Wild Run.\par}
+
+\vspace{5mm}
+\scopeitem{01}{Brand-led design}{Translate the supplied identity into a refined interface: palette, RedRose typography, logo, editorial rhythm, photography treatment and calls to action.}
+
+\scopeitem{02}{Content structure}{Organize each website around its destination, lodge, location, stay, experiences, conservation, gallery and contact or booking journeys.}
+
+\scopeitem{03}{Three languages}{Implement Spanish, English and Portuguese versions with a language selector and page-level metadata for each language.}
+
+\scopeitem{04}{Responsive build}{Adapt the existing Astro project for mobile, tablet and desktop with reusable components, semantic structure and a production build.}
+
+\scopeitem{05}{Technical SEO foundation}{Configure page titles, descriptions, semantic headings, friendly URLs, alt text, sitemap, robots.txt, canonical and hreflang tags, Open Graph and basic lodging structured data for search and social channels.}
+
+\vspace{1mm}
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{softbox}
+    \eyebrow{Included in the fee}\par\vspace{1.5mm}
+    {\sffamily\fontsize{8}{9.8}\selectfont\color{Text}
+      \begin{itemize}
+        \item Brand alignment using the supplied brochure, imagery, logo and fonts.
+        \item Responsive front-end implementation and navigation.
+        \item Three language versions and initial technical SEO setup.
+        \item Link, layout and browser checks before handoff.
+      \end{itemize}}
+  \end{softbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{softbox}
+    \eyebrow{Not included}\par\vspace{1.5mm}
+    {\sffamily\fontsize{8}{9.8}\selectfont\color{Text}
+      \begin{itemize}
+        \item Domain, hosting or paid third-party tools.
+        \item New photography, video, copywriting or professional translation.
+        \item Booking, PMS, CRM, payment or advanced analytics integrations.
+        \item Ongoing SEO, advertising or monthly maintenance.
+      \end{itemize}}
+  \end{softbox}
+\end{minipage}
+
+\pagefooter{02}
+
+\end{document}

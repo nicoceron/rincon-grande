@@ -1,0 +1,25 @@
+---
+import AboutRoute from './AboutRoute.astro';
+import ContactRoute from './ContactRoute.astro';
+import DiningRoute from './DiningRoute.astro';
+import RoomsRoute from './RoomsRoute.astro';
+import WellnessRoute from './WellnessRoute.astro';
+import WinterRoute from './WinterRoute.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const routeClass = page.slug.replace('/', '-');
+---
+
+<article class={`source-route-page source-route-page--${routeClass}`} data-route={page.slug}>
+  {page.slug === 'about' && <AboutRoute page={page} />}
+  {page.slug === 'rooms' && <RoomsRoute page={page} />}
+  {page.slug === 'dining' && <DiningRoute page={page} />}
+  {page.slug === 'wellness' && <WellnessRoute page={page} />}
+  {page.slug === 'experiences/winter' && <WinterRoute page={page} />}
+  {page.slug === 'contact' && <ContactRoute page={page} />}
+</article>

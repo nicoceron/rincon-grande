@@ -1,0 +1,63 @@
+---
+import InlineSvg from './InlineSvg.astro';
+
+const isHome = Astro.url.pathname === '/';
+const homeHref = '/';
+const mobileHomeHref = isHome ? './' : '/';
+---
+
+<header class="site-nav" data-site-nav>
+  <nav class="landing-nav" aria-label="Primary navigation" data-framer-name="Landing">
+    <div class="nav-bottom-border" data-framer-name="Bottom Border" aria-hidden="true"></div>
+    <div class="nav-container">
+      <nav class="desktop-nav" data-framer-name="Desktop">
+        <div class="nav-padding" data-framer-name="Padding">
+          <div class="nav-main" data-framer-name="Main Nav">
+            <div class="nav-menu" data-framer-name="Menu">
+              <div class="nav-menu-wrap" data-framer-name="Menu Wrap">
+                <button class="menu-toggle" type="button" data-menu-toggle data-framer-name="Hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu">
+                  <span class="menu-button-content">
+                    <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="nav-logo-wrap" data-framer-name="Logo Wrap">
+              <a
+                class="nav-logo"
+                href={homeHref}
+                data-desktop-href={homeHref}
+                data-mobile-href={mobileHomeHref}
+                data-astro-href="/"
+                aria-label="The Regent home"
+                data-framer-name="Logo"
+              >
+                <span class="brand-mark-variant" data-framer-name="White">
+                  <span class="brand-mark-svg"><InlineSvg kind="wordmark-small" class="brand-mark brand-mark-light" /></span>
+                </span>
+                <span class="brand-mark-variant">
+                  <span class="brand-mark-svg"><InlineSvg kind="wordmark-dark" class="brand-mark brand-mark-dark" /></span>
+                </span>
+              </a>
+            </div>
+
+            <div class="nav-item" data-framer-name="Nav Item">
+              <a class="nav-book button-fill" href="https://booking.com" target="_blank" rel="noopener" data-framer-name="Desktop">
+                <span class="nav-button-wrapper" data-framer-name="Button Wrapper">
+                  <span class="nav-button-text" data-framer-name="Text">Book&nbsp;</span>
+                  <span class="nav-button-fill" data-framer-name="Button Fill" aria-hidden="true"></span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="nav-background" data-framer-name="Background" aria-hidden="true"></div>
+        </div>
+      </nav>
+
+      <div class="nav-panel" id="site-menu" aria-hidden="true">
+        <div class="nav-panel-inner" data-menu-content></div>
+      </div>
+    </div>
+  </nav>
+</header>

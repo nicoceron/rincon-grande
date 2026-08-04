@@ -1,0 +1,49 @@
+---
+import stamp from '../assets/inline-svg/stamp.svg?raw';
+import wordmarkSmall from '../assets/inline-svg/wordmark-small.svg?raw';
+import wordmarkDark from '../assets/inline-svg/wordmark-dark.svg?raw';
+import wordmarkLarge from '../assets/inline-svg/wordmark-large.svg?raw';
+import crest from '../assets/inline-svg/crest.svg?raw';
+import footerLogo from '../assets/inline-svg/footer-logo.svg?raw';
+import asSeen1 from '../assets/inline-svg/as-seen-1.svg?raw';
+import asSeen2 from '../assets/inline-svg/as-seen-2.svg?raw';
+import asSeen3 from '../assets/inline-svg/as-seen-3.svg?raw';
+import asSeen4 from '../assets/inline-svg/as-seen-4.svg?raw';
+
+type SvgKind =
+  | 'stamp'
+  | 'wordmark-small'
+  | 'wordmark-dark'
+  | 'wordmark-large'
+  | 'crest'
+  | 'footer-logo'
+  | `as-seen-${1 | 2 | 3 | 4}`;
+
+const { kind, class: className = '', id = '', label = '' } = Astro.props as {
+  kind: SvgKind;
+  class?: string;
+  id?: string;
+  label?: string;
+};
+const sources: Record<SvgKind, string> = {
+  stamp,
+  'wordmark-small': wordmarkSmall,
+  'wordmark-dark': wordmarkDark,
+  'wordmark-large': wordmarkLarge,
+  crest,
+  'footer-logo': footerLogo,
+  'as-seen-1': asSeen1,
+  'as-seen-2': asSeen2,
+  'as-seen-3': asSeen3,
+  'as-seen-4': asSeen4,
+};
+const source = sources[kind];
+const attributes = [
+  className ? `class="${className}"` : '',
+  id ? `id="${id}"` : '',
+  label ? `role="img" aria-label="${label}"` : '',
+].filter(Boolean).join(' ');
+const svg = attributes ? source.replace('<svg ', `<svg ${attributes} `) : source;
+---
+
+<Fragment set:html={svg} />

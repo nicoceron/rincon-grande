@@ -1,0 +1,70 @@
+---
+import RouteMedia from './RouteMedia.astro';
+import SourceRouteButton from './SourceRouteButton.astro';
+import SourceRouteHero from './SourceRouteHero.astro';
+import WordSpans from './WordSpans.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const collection = page.sections.find((section) => section.id === 'rooms-collection');
+const special = page.sections.find((section) => section.id === 'special-requests');
+const faq = page.sections.find((section) => section.id === 'faq');
+const slugify = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+---
+
+<SourceRouteHero page={page} />
+
+<section class="source-rooms-collection" aria-labelledby="rooms-collection-title">
+  <div class="source-rooms-collection-intro">
+    <p class="eyebrow">{collection?.eyebrow}</p>
+    <h2 id="rooms-collection-title" class="reveal" data-reveal><WordSpans text={collection?.title ?? ''} /></h2>
+  </div>
+
+  <div class="source-rooms-grid">
+    {collection?.cards?.map((card) => (
+      <a class="source-room-card" href={`/rooms/${slugify(card.title)}`}>
+        {card.image && <RouteMedia {...card.image} />}
+        <div class="source-room-card-meta">
+          <span aria-hidden="true">✣</span>
+          {card.meta?.[0] && <span>{card.meta[0].label.replace('²', '2')}</span>}
+          {card.meta?.[0]?.value.split(' · ').map((value) => <span>{value}</span>)}
+        </div>
+        <h3>{card.title}</h3>
+        <p>{card.body}</p>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="source-rooms-special" aria-labelledby="rooms-special-title">
+  <div class="source-rooms-special-media" aria-hidden="true">
+    {special?.media && <RouteMedia {...special.media} />}
+  </div>
+  <div class="source-rooms-special-panel">
+    <div class="source-rooms-special-panel-inner">
+      <h3 id="rooms-special-title" class="reveal" data-reveal><WordSpans text={special?.eyebrow ?? ''} /></h3>
+      <p>{special?.body?.[0]}</p>
+      <SourceRouteButton href="/contact" label="Contact Us" />
+    </div>
+  </div>
+</section>
+
+<section class="source-rooms-faq" aria-labelledby="rooms-faq-title">
+  <div class="source-rooms-faq-inner">
+    <div>
+      <p class="eyebrow">{faq?.eyebrow}</p>
+      <h2 id="rooms-faq-title" class="reveal" data-reveal><WordSpans text={faq?.title ?? ''} /></h2>
+    </div>
+    <div class="source-rooms-faq-list">
+      {faq?.questions?.map((question) => (
+        <details>
+          <summary>{question}<span aria-hidden="true">+</span></summary>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

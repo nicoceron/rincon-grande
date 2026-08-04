@@ -1,0 +1,3902 @@
+/* Rendered destination pages use the same visual system as the captured
+   Regent source, but keep the page-specific compositions separate from the
+   home-page export styles. */
+
+.route-page .main-wrap {
+  gap: 0;
+  overflow: visible;
+}
+
+.source-route-page {
+  width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.source-route-page h2,
+.source-route-page h3,
+.source-route-page p {
+  margin: 0;
+}
+
+.source-route-page p {
+  line-height: 1.3;
+}
+
+.source-route-page h2,
+.source-route-page h3 {
+  font-family: var(--heading-font);
+  font-weight: 1000;
+  font-variation-settings: 'wdth' 2;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.source-route-page img,
+.source-route-page video {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+}
+
+.source-route-page .route-media-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.source-route-page .route-media-frame > img,
+.source-route-page .route-media-frame > video {
+  position: absolute;
+  inset: 0;
+}
+
+.source-route-page .route-media-parallax-content {
+  will-change: transform;
+  scale: 1;
+  transform: translateY(-37px) scale(1.2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .source-room-card .route-media-parallax-content {
+    transition:
+      filter 800ms cubic-bezier(0.18, 0.76, 0.56, 1),
+      scale 800ms cubic-bezier(0.18, 0.76, 0.56, 1);
+  }
+
+  .source-room-card:hover .route-media-parallax-content,
+  .source-room-card:focus-visible .route-media-parallax-content {
+    filter: brightness(0.5);
+    scale: 1.1;
+  }
+}
+
+.source-route-page .source-prefooter-media .route-media-parallax-content,
+.source-route-page .source-contact-image .route-media-parallax-content {
+  transform: none;
+}
+
+.source-route-page .route-media-frame:not(.route-media-frame--parallax) > img,
+.source-route-page .route-media-frame:not(.route-media-frame--parallax) > video {
+  transform: none;
+}
+
+.source-route-page .route-reveal {
+  will-change: opacity, transform;
+}
+
+.route-page .site-nav {
+  background: transparent;
+  border-bottom: 0;
+  color: var(--white);
+}
+
+.route-page .site-nav.is-open {
+  color: #000;
+}
+
+.route-page .site-nav.is-open .menu-toggle:focus-visible {
+  outline: #e59700 auto 1px;
+  outline-offset: 0;
+}
+
+.route-page .nav-background {
+  background: transparent;
+}
+
+.route-page .site-nav.is-scrolled {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
+  color: var(--ink);
+}
+
+.route-page .site-nav.is-scrolled .nav-background {
+  background: var(--cream);
+}
+
+.route-page .site-nav.is-scrolled .brand-mark-light,
+.route-contact .site-nav .brand-mark-light {
+  opacity: 0;
+}
+
+.route-page .site-nav.is-scrolled .brand-mark-dark,
+.route-contact .site-nav .brand-mark-dark {
+  opacity: 1;
+}
+
+.route-page:not(.route-contact) .site-nav:not(.is-scrolled):not(.is-open) .brand-mark-light {
+  opacity: 1;
+}
+
+.route-page:not(.route-contact) .site-nav:not(.is-scrolled):not(.is-open) .brand-mark-dark {
+  opacity: 0;
+}
+
+.route-page:not(.route-contact) .site-nav:not(.is-scrolled) .nav-bottom-border {
+  opacity: 0;
+}
+
+.route-contact .site-nav {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
+  color: var(--ink);
+}
+
+.route-contact .site-nav .nav-background {
+  background: var(--cream);
+}
+
+.route-contact .site-nav .nav-bottom-border {
+  opacity: 1;
+}
+
+.source-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+  background: #241b19;
+  color: var(--white);
+}
+
+.source-hero-media,
+.source-hero-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.source-hero-media {
+  z-index: 0;
+}
+
+.source-hero-media::after {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  content: '';
+}
+
+.source-hero-shade {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+.source-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+}
+
+.source-hero-title {
+  position: absolute;
+  top: 40.7%;
+  right: 32px;
+  left: 32px;
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-size: clamp(4rem, 8.333vw, 7.5rem);
+  font-weight: 1000;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.source-hero-bottom {
+  position: absolute;
+  right: 32px;
+  bottom: 33px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.source-hero-label {
+  color: var(--white);
+  font-family: var(--label-font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.source-hero-intro {
+  width: min(100%, 400px);
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 1000;
+  font-variation-settings: 'wdth' 2;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.source-season-switch {
+  position: absolute;
+  top: 59.6%;
+  left: 50%;
+  display: grid;
+  width: 260px;
+  height: 38px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  transform: translateX(-50%);
+}
+
+.source-season-switch a {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  height: 32px;
+  place-items: center;
+  color: var(--white);
+  font-family: var(--label-font);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.source-season-switch a.is-active {
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.source-route-button {
+  display: inline-flex;
+  min-height: 41px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--label-font);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  transition: background-color 220ms var(--ease), color 220ms var(--ease);
+}
+
+.source-route-button:hover,
+.source-route-button:focus-visible {
+  background: var(--accent-hover);
+}
+
+.source-about-history {
+  position: relative;
+  height: 1295px;
+  overflow: hidden;
+  padding: 205px 32px 0;
+  background: var(--cream);
+}
+
+.source-about-history-intro {
+  display: grid;
+  width: min(100%, 1408px);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.62fr);
+  gap: 80px;
+}
+
+.source-about-history-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source-about-history-heading h2 {
+  max-width: 850px;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-about-history-lede {
+  max-width: 370px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.source-history-viewport {
+  width: calc(100% + 64px);
+  margin: 74px -32px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.source-history-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.source-history-track {
+  display: flex;
+  width: max-content;
+  gap: 80px;
+  padding: 0 32px;
+}
+
+.source-history-card {
+  width: 451px;
+  flex: 0 0 451px;
+}
+
+.source-history-card h3 {
+  margin-bottom: 27px;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.source-history-card > .route-media-frame {
+  width: 451px;
+  height: 300px;
+}
+
+.source-history-card.is-portrait > .route-media-frame {
+  height: 368px;
+}
+
+.source-history-card p {
+  max-width: 450px;
+  margin-top: 25px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.source-history-pagination {
+  position: absolute;
+  right: 32px;
+  bottom: 42px;
+  display: flex;
+  gap: 8px;
+}
+
+.source-history-pagination button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0;
+}
+
+.source-history-pagination button:first-child {
+  background: currentColor;
+}
+
+.source-about-heritage {
+  height: 1394px;
+  overflow: hidden;
+  padding: 205px 32px 0;
+  background: var(--footer);
+  color: var(--white);
+}
+
+.source-about-heritage-intro {
+  display: grid;
+  width: min(100%, 1376px);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 120px;
+}
+
+.source-about-heritage-intro > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source-about-heritage-intro h2 {
+  max-width: 620px;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-about-heritage-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.source-about-heritage-copy p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-about-heritage-media {
+  display: grid;
+  width: min(100%, 1216px);
+  margin: 95px auto 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 100px;
+}
+
+.source-about-heritage-media figure {
+  position: relative;
+  margin: 0;
+}
+
+.source-about-heritage-media--timeless {
+  margin-top: 148px;
+}
+
+.source-about-heritage-media--timeless > .route-media-frame {
+  height: 383px;
+}
+
+.source-about-heritage-media--refined > .route-media-frame {
+  height: 680px;
+}
+
+.source-about-heritage-media figcaption {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--label-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.source-about-philosophy {
+  height: 875px;
+  overflow: hidden;
+  padding: 180px 32px 0;
+  background: var(--cream);
+}
+
+.source-about-philosophy-inner {
+  width: min(100%, 1376px);
+  margin: 0 auto;
+}
+
+.source-about-philosophy h2 {
+  max-width: none;
+  margin-top: 8px;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-about-estimate {
+  display: flex;
+  width: 171px;
+  margin: 78px auto 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--label-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.source-about-estimate span:last-child {
+  font-family: var(--heading-font);
+  font-size: 2.8rem;
+  letter-spacing: 0;
+}
+
+.source-about-philosophy-copy {
+  display: grid;
+  margin-top: 54px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.source-about-philosophy-copy > div {
+  max-width: 390px;
+}
+
+.source-about-philosophy-copy p:last-child {
+  margin-top: 20px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-prefooter {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.source-prefooter-media,
+.source-prefooter-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.source-prefooter-media {
+  z-index: 0;
+}
+
+.source-prefooter-shade {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.source-prefooter-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px;
+  text-align: center;
+}
+
+.source-prefooter-content h2,
+.source-prefooter-content h3 {
+  width: min(100%, 650px);
+  max-width: 650px;
+  color: var(--white);
+  font-size: 48px;
+  line-height: 1.15;
+}
+
+.source-prefooter--dining .source-prefooter-content h2 {
+  font-size: 72px;
+}
+
+.source-rooms-collection {
+  height: 3220.8px;
+  overflow: hidden;
+  padding: 180px 32px 0;
+  background: var(--cream);
+}
+
+.source-rooms-collection-intro {
+  width: min(100%, 1376px);
+  margin: 0 auto 48px;
+}
+
+.source-rooms-collection-intro h2 {
+  width: 400px;
+  max-width: 100%;
+  margin-top: 8px;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-rooms-grid {
+  display: grid;
+  width: min(100%, 1376px);
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+  row-gap: 75px;
+}
+
+.source-room-card {
+  display: block;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.source-room-card img {
+  height: 453px;
+}
+
+.source-room-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 22px;
+  color: var(--ink);
+  font-family: var(--label-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.source-room-card-meta span:first-child {
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.source-room-card h3 {
+  width: 400px;
+  max-width: 100%;
+  margin-top: 25px;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-room-card > p {
+  margin-top: 18px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.source-rooms-special {
+  position: relative;
+  height: 740px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.source-rooms-special-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 560px;
+}
+
+.source-rooms-special-media::after {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.source-rooms-special-panel {
+  position: absolute;
+  z-index: 1;
+  top: 303px;
+  right: 0;
+  width: 486px;
+  height: 324px;
+  padding: 16px;
+  background: var(--footer);
+  color: var(--white);
+}
+
+.source-rooms-special-panel-inner {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px;
+  border: 1px dashed rgba(255, 255, 255, 0.55);
+}
+
+.source-rooms-special-panel h2,
+.source-rooms-special-panel h3 {
+  width: 390px;
+  max-width: 100%;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-rooms-special-panel p {
+  max-width: 390px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.source-rooms-special-panel .source-route-button {
+  margin-top: 24px;
+}
+
+.source-rooms-faq {
+  height: 753.8px;
+  overflow: hidden;
+  padding: 128px 24px 0;
+  background: var(--cream);
+}
+
+.source-rooms-faq-inner {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  grid-template-columns: 640px minmax(0, 1fr);
+  gap: 64px;
+}
+
+.source-rooms-faq h2 {
+  width: 640px;
+  max-width: 100%;
+  margin-top: 8px;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-rooms-faq-list {
+  border-top: 1px solid rgba(55, 11, 10, 0.35);
+}
+
+.source-rooms-faq details {
+  border-bottom: 1px solid rgba(55, 11, 10, 0.35);
+}
+
+.source-rooms-faq summary {
+  display: flex;
+  min-height: 77px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1rem;
+  list-style: none;
+}
+
+.source-rooms-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.source-rooms-faq summary span {
+  font-size: 1.5rem;
+}
+
+.source-dining-restaurant {
+  height: 632px;
+  overflow: hidden;
+  padding: 205px 32px 0;
+  background: var(--cream);
+}
+
+.source-dining-restaurant-inner {
+  display: grid;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  grid-template-columns: 400px 400px;
+  gap: 80px;
+}
+
+.source-dining-restaurant-inner > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source-dining-restaurant h2 {
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-dining-restaurant-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.source-dining-restaurant-copy p,
+.source-dining-chef-copy > p:last-child,
+.source-dining-bar-copy > p:last-child {
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-dining-gallery {
+  height: 652px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.source-dining-gallery-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.source-dining-gallery-item {
+  width: 356px;
+  flex: 0 0 356px;
+  margin: 0;
+}
+
+.source-dining-gallery-item > .route-media-frame {
+  height: 100%;
+}
+
+.source-dining-gallery-item--wide > .route-media-frame { height: 472px; }
+.source-dining-gallery-item--short > .route-media-frame { height: 236px; }
+.source-dining-gallery-item--tall > .route-media-frame { height: 472px; }
+.source-dining-gallery-item--medium > .route-media-frame { height: 442px; }
+
+.source-dining-gallery-item img {
+  height: 100%;
+}
+
+.source-dining-chef-banner {
+  height: 820px;
+  overflow: hidden;
+  padding-top: 100px;
+  background: var(--cream);
+}
+
+.source-dining-chef-banner img {
+  height: 721px;
+}
+
+.source-dining-chef-banner > .route-media-frame {
+  height: 721px;
+}
+
+.source-dining-chef {
+  position: relative;
+  height: 1016px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.source-dining-chef-copy {
+  position: absolute;
+  top: 416px;
+  left: max(32px, calc((100% - 1056px) / 2));
+  width: 400px;
+}
+
+.source-dining-chef-copy h2,
+.source-dining-chef-copy h3 {
+  margin-top: 16px;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-dining-chef-copy > p:last-child {
+  margin-top: 25px;
+}
+
+.source-dining-chef-media {
+  position: absolute;
+  top: 180px;
+  right: max(32px, calc((100% - 1056px) / 2 - 64px));
+  width: 656px;
+  height: 656px;
+}
+
+.source-dining-chef-media img:first-child {
+  position: absolute;
+  inset: 0;
+}
+
+.source-dining-chef-media img:last-child {
+  position: absolute;
+  bottom: -95px;
+  left: -50px;
+  width: 251px;
+  height: 314px;
+}
+
+.source-dining-chef-media > .route-media-frame:first-child {
+  position: absolute;
+  inset: 0;
+}
+
+.source-dining-chef-media > .route-media-frame:last-child {
+  position: absolute;
+  bottom: -95px;
+  left: -50px;
+  width: 251px;
+  height: 314px;
+}
+
+.source-dining-bar {
+  display: grid;
+  height: 939px;
+  overflow: hidden;
+  padding: 180px 32px 0;
+  grid-template-columns: 928px 400px;
+  gap: 48px;
+  background: var(--cream);
+}
+
+.source-dining-bar-media {
+  height: 659px;
+}
+
+.source-dining-bar-media > .route-media-frame {
+  height: 100%;
+}
+
+.source-dining-bar-copy {
+  align-self: center;
+  position: relative;
+  top: -17px;
+  padding-bottom: 48px;
+}
+
+.source-dining-bar-copy h2,
+.source-dining-bar-copy h3 {
+  margin-top: 16px;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-dining-bar-copy > p:last-child {
+  margin-top: 27px;
+}
+
+.source-dining-experience {
+  height: 720px;
+  overflow: hidden;
+  padding: 180px 32px 0;
+  background: var(--cream);
+}
+
+.source-dining-experience-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.source-dining-experience-heading h2 {
+  width: 100%;
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-dining-experience-grid {
+  display: grid;
+  width: min(100%, 1240px);
+  margin: 112px auto 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.source-dining-experience-grid article {
+  min-height: 170px;
+  padding: 0 48px 0 0;
+  border-right: 1px solid rgba(55, 11, 10, 0.28);
+}
+
+.source-dining-experience-grid article:last-child {
+  border-right: 0;
+}
+
+.source-dining-experience-grid article > p:last-child {
+  margin-top: 22px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.source-wellness-overview {
+  height: 672px;
+  overflow: hidden;
+  padding: 225px 32px 0;
+  background: var(--cream);
+}
+
+.source-wellness-overview-inner {
+  display: grid;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  grid-template-columns: 400px 400px;
+  gap: 80px;
+}
+
+.source-wellness-overview-inner > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source-wellness-overview h2 {
+  font-size: 72px;
+  line-height: 1.15;
+}
+
+.source-wellness-overview-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.source-wellness-overview-copy p {
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-wellness-spa {
+  position: relative;
+  height: 716px;
+  overflow: hidden;
+  background: var(--footer);
+}
+
+.source-wellness-spa-pool {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.source-wellness-spa-treatment {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 438px;
+}
+
+.source-wellness-spa-pool > .route-media-frame,
+.source-wellness-spa-treatment > .route-media-frame,
+.source-wellness-fitness-media > .route-media-frame,
+.source-wellness-heat-left > .route-media-frame,
+.source-wellness-heat-right > .route-media-frame,
+.source-contact-image > .route-media-frame {
+  height: 100%;
+}
+
+.source-wellness-spa-copy {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 278px;
+  bottom: -25px;
+  padding: 64px 24px;
+  background: var(--footer);
+  color: var(--white);
+}
+
+.source-wellness-spa-copy h2,
+.source-wellness-spa-copy h3 {
+  width: 400px;
+  max-width: 100%;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-wellness-spa-copy p {
+  max-width: 400px;
+  margin-top: 32px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-wellness-heat {
+  height: 870px;
+  overflow: hidden;
+  padding: 180px 32px 0;
+  background: var(--cream);
+}
+
+.source-wellness-heat-inner {
+  position: relative;
+  width: min(100%, 1376px);
+  height: 510px;
+  margin: 0 auto;
+}
+
+.source-wellness-heat h2 {
+  position: absolute;
+  top: 74px;
+  left: 40px;
+  width: 400px;
+  font-size: 72px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-wellness-heat-left,
+.source-wellness-heat-right,
+.source-wellness-heat-copy {
+  position: absolute;
+}
+
+.source-wellness-heat-left {
+  top: 117px;
+  left: 0;
+  width: 480px;
+  height: 416px;
+}
+
+.source-wellness-heat-right {
+  top: -63px;
+  right: 0;
+  width: 480px;
+  height: 612px;
+}
+
+.source-wellness-heat-copy {
+  top: 399px;
+  left: 50%;
+  width: 400px;
+  transform: translateX(-50%);
+}
+
+.source-wellness-heat-copy p {
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-wellness-heat-copy p + p {
+  margin-top: 30px;
+}
+
+.source-wellness-fitness {
+  height: 798px;
+  overflow: hidden;
+  padding: 100px 0 0 10%;
+  background: var(--cream);
+}
+
+.source-wellness-fitness-media {
+  width: 90%;
+  height: 583px;
+}
+
+.source-wellness-fitness-copy {
+  display: grid;
+  width: 90%;
+  margin-top: 34px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.source-wellness-fitness-copy h2 {
+  width: 160px;
+  font-size: 72px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-wellness-fitness-copy p {
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-wellness-cta {
+  display: block;
+  height: 662px;
+  overflow: hidden;
+  padding: 200px 32px 0;
+  background: var(--cream);
+  text-align: center;
+}
+
+.source-wellness-cta > div {
+  display: flex;
+  width: min(100%, 1376px);
+  height: 262px;
+  margin: 0 auto;
+  max-width: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.source-wellness-cta h2,
+.source-wellness-cta h3 {
+  max-width: 600px;
+  margin-top: 8px;
+  font-size: 48px;
+  line-height: 1.15;
+}
+
+.source-wellness-cta .source-route-button {
+  margin-top: 32px;
+}
+
+.source-winter-intro {
+  display: flex;
+  height: 389px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3px;
+  padding: 205px 32px 0;
+  background: var(--cream);
+  text-align: center;
+}
+
+.source-winter-intro h2,
+.source-winter-intro h3 {
+  max-width: 600px;
+  font-size: 48px;
+  line-height: 1.15;
+}
+
+.source-winter-experience {
+  height: 1000px;
+  overflow: hidden;
+  padding: 0 32px;
+  background: var(--cream);
+}
+
+.source-winter-experience.is-forward {
+  height: 1000px;
+}
+
+.source-winter-experience.is-first {
+  height: 1200px;
+}
+
+.source-winter-experience-inner {
+  position: relative;
+  width: min(100%, 1376px);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.source-winter-experience-copy {
+  position: absolute;
+  z-index: 2;
+  top: 33px;
+  left: 32px;
+  width: 460px;
+}
+
+.source-winter-experience.is-reverse .source-winter-experience-copy {
+  right: 32px;
+  left: auto;
+}
+
+.source-winter-experience.is-first .source-winter-experience-copy {
+  top: 233px;
+}
+
+.source-winter-experience-copy h2,
+.source-winter-experience-copy h3 {
+  margin-top: 0;
+  font-size: 48px;
+  line-height: 1.15;
+}
+
+.source-winter-experience-copy > p:last-child {
+  max-width: 390px;
+  margin-top: 25px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-winter-experience-large {
+  position: absolute;
+  top: 127px;
+  right: 0;
+  width: 804px;
+  height: 898px;
+}
+
+.source-winter-experience-large > .route-media-frame,
+.source-winter-experience-small > .route-media-frame {
+  height: 100%;
+}
+
+.source-winter-experience.is-reverse .source-winter-experience-large {
+  right: auto;
+  left: 0;
+  top: -73px;
+}
+
+.source-winter-experience-small {
+  position: absolute;
+  z-index: 3;
+  top: 383px;
+  left: 147px;
+  width: 230px;
+  height: 256px;
+}
+
+.source-winter-experience.is-reverse .source-winter-experience-small {
+  right: 147px;
+  left: auto;
+  top: 120px;
+}
+
+.source-contact-marquee {
+  height: 455px;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.source-contact-marquee-track {
+  display: flex;
+  width: max-content;
+  height: 255.04px;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 200px;
+  transform: none;
+}
+
+.source-contact-marquee-track span {
+  font-family: var(--heading-font);
+  font-size: 255.04px;
+  font-weight: 1000;
+  font-variation-settings: 'wdth' 3;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.source-contact-main {
+  height: 851px;
+  overflow: hidden;
+  padding: 160px 32px 0;
+  background: var(--cream);
+}
+
+.source-contact-main-inner {
+  display: grid;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  grid-template-columns: 398px 400px;
+  gap: 164px;
+}
+
+.source-contact-image {
+  width: 398px;
+  height: 531px;
+}
+
+.source-contact-copy {
+  padding-top: 0;
+}
+
+.source-contact-copy h2,
+.source-contact-copy h3 {
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.source-contact-intro {
+  max-width: 380px;
+  margin-top: 20px !important;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+}
+
+.source-contact-details {
+  display: grid;
+  margin-top: 75px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 64px;
+}
+
+.source-contact-details > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.source-contact-details > div > a,
+.source-contact-details > div > p:last-child {
+  display: block;
+  margin-top: 20px;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.38;
+  white-space: pre-line;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .source-contact-marquee-track {
+    transform: none;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .source-hero {
+    height: 100svh;
+    min-height: 500px;
+  }
+
+  .source-hero-container {
+    padding: 16px;
+  }
+
+  .source-hero-title {
+    top: 36.73%;
+    right: 16px;
+    left: 16px;
+    font-size: 3.84rem;
+    line-height: 1.15;
+  }
+
+  .source-hero-bottom {
+    right: 16px;
+    top: 52.13%;
+    left: 16px;
+    bottom: auto;
+    gap: 20px;
+  }
+
+  .source-hero-intro {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .source-season-switch {
+    top: 44%;
+    width: 260px;
+  }
+
+  .source-hero--experiences-winter .source-hero-title {
+    top: 40%;
+  }
+
+  .source-hero--experiences-winter .source-hero-bottom {
+    bottom: 38px;
+  }
+
+  .source-about-history {
+    height: 1277px;
+    padding: 80px 16px 0;
+  }
+
+  .source-about-history-intro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .source-about-history-heading {
+    gap: 23px;
+  }
+
+  .source-about-history-heading h2 {
+    font-size: clamp(3.4rem, 13vw, 5rem);
+  }
+
+  .source-about-history-lede {
+    max-width: none;
+  }
+
+  .source-history-viewport {
+    width: calc(100% + 32px);
+    margin: 88px -16px 0;
+  }
+
+  .source-history-track {
+    gap: 32px;
+    padding: 0 16px;
+  }
+
+  .source-history-card {
+    width: 228px;
+    flex-basis: 228px;
+  }
+
+  .source-history-card h3 {
+    margin-bottom: 26px;
+    font-size: 2rem;
+  }
+
+  .source-history-card img {
+    width: 228px;
+    height: 300px;
+  }
+
+  .source-history-card.is-portrait img {
+    height: 368px;
+  }
+
+  .source-history-card p {
+    margin-top: 24px;
+    font-size: 0.98rem;
+  }
+
+  .source-history-pagination {
+    right: 16px;
+    bottom: 32px;
+  }
+
+  .source-about-heritage {
+    height: 1410px;
+    padding: 80px 16px 0;
+  }
+
+  .source-about-heritage-intro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 55px;
+  }
+
+  .source-about-heritage-intro h2 {
+    font-size: clamp(3.4rem, 13vw, 5rem);
+  }
+
+  .source-about-heritage-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .source-about-heritage-media {
+    display: flex;
+    width: 100%;
+    margin-top: 62px;
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .source-about-heritage-media--timeless {
+    margin-top: 0;
+  }
+
+  .source-about-heritage-media--timeless img,
+  .source-about-heritage-media--refined img {
+    height: auto;
+    aspect-ratio: 1.22;
+  }
+
+  .source-about-heritage-media--refined img {
+    aspect-ratio: 0.72;
+  }
+
+  .source-about-philosophy {
+    height: 845px;
+    padding: 80px 16px 0;
+  }
+
+  .source-about-philosophy h2 {
+    font-size: clamp(3.4rem, 13vw, 5rem);
+  }
+
+  .source-about-estimate {
+    margin-top: 60px;
+  }
+
+  .source-about-philosophy-copy {
+    display: flex;
+    margin-top: 55px;
+    flex-direction: column;
+    gap: 33px;
+  }
+
+  .source-about-philosophy-copy > div {
+    max-width: none;
+  }
+
+  .source-prefooter {
+    height: 506px;
+  }
+
+  .source-prefooter-content {
+    padding: 16px;
+  }
+
+  .source-prefooter-content h2 {
+    font-size: clamp(3rem, 12vw, 4.7rem);
+  }
+
+  .source-rooms-collection {
+    height: 3986px;
+    padding: 80px 16px 0;
+  }
+
+  .source-rooms-collection-intro {
+    width: 100%;
+    margin-bottom: 56px;
+  }
+
+  .source-rooms-collection-intro h2 {
+    font-size: clamp(3.4rem, 13vw, 5rem);
+  }
+
+  .source-rooms-grid {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .source-room-card img {
+    height: auto;
+    aspect-ratio: 1.5;
+  }
+
+  .source-room-card h3 {
+    margin-top: 21px;
+    font-size: 2.5rem;
+  }
+
+  .source-room-card > p {
+    margin-top: 15px;
+  }
+
+  .source-rooms-special {
+    height: 904px;
+  }
+
+  .source-rooms-special-media {
+    height: 560px;
+  }
+
+  .source-rooms-special-panel {
+    top: 345px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    height: 322px;
+  }
+
+  .source-rooms-special-panel-inner {
+    padding: 24px;
+  }
+
+  .source-rooms-special-panel h2 {
+    font-size: 3rem;
+  }
+
+  .source-rooms-faq {
+    height: 760px;
+    padding: 80px 16px 0;
+  }
+
+  .source-rooms-faq-inner {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 52px;
+  }
+
+  .source-rooms-faq h2 {
+    font-size: clamp(3.4rem, 13vw, 5rem);
+  }
+
+  .source-rooms-faq summary {
+    min-height: 64px;
+  }
+
+  .source-dining-restaurant {
+    height: 591px;
+    padding: 80px 16px 0;
+  }
+
+  .source-dining-restaurant-inner {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 46px;
+  }
+
+  .source-dining-restaurant h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-dining-gallery {
+    height: 357px;
+  }
+
+  .source-dining-gallery-track {
+    gap: 12px;
+  }
+
+  .source-dining-gallery-item {
+    width: 179.14px;
+    flex-basis: 179.14px;
+  }
+
+  .source-dining-gallery-item:nth-child(6) {
+    width: 222px;
+    flex-basis: 222px;
+  }
+
+  .source-dining-gallery-item:nth-child(1) img,
+  .source-dining-gallery-item:nth-child(3) img { height: 296px; }
+  .source-dining-gallery-item:nth-child(2) img,
+  .source-dining-gallery-item:nth-child(4) img { height: 186px; }
+  .source-dining-gallery-item:nth-child(5) img,
+  .source-dining-gallery-item:nth-child(8) img { height: 357px; }
+  .source-dining-gallery-item:nth-child(6) img { height: 286px; }
+  .source-dining-gallery-item:nth-child(7) img { height: 288px; }
+
+  .source-dining-chef-banner {
+    height: 469px;
+    padding-top: 0;
+  }
+
+  .source-dining-chef-banner img {
+    height: 469px;
+  }
+
+  .source-dining-chef {
+    height: 1090px;
+  }
+
+  .source-dining-chef-copy {
+    top: 80px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+
+  .source-dining-chef-copy h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-dining-chef-media {
+    top: 510px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    height: 430px;
+  }
+
+  .source-dining-chef-media img:last-child {
+    bottom: -35px;
+    left: 16px;
+    width: 180px;
+    height: 225px;
+  }
+
+  .source-dining-bar {
+    display: flex;
+    height: 653px;
+    padding: 0;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .source-dining-bar-media {
+    height: 340px;
+  }
+
+  .source-dining-bar-copy {
+    padding: 60px 16px 0;
+  }
+
+  .source-dining-bar-copy h2 {
+    font-size: clamp(3rem, 12vw, 4.6rem);
+  }
+
+  .source-dining-experience {
+    height: 855px;
+    padding: 80px 16px 0;
+  }
+
+  .source-dining-experience-heading h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-dining-experience-grid {
+    display: flex;
+    width: 100%;
+    margin-top: 70px;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .source-dining-experience-grid article {
+    min-height: 0;
+    padding: 0 0 28px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(55, 11, 10, 0.28);
+  }
+
+  .source-dining-experience-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .source-wellness-overview {
+    height: 528px;
+    padding: 80px 16px 0;
+  }
+
+  .source-wellness-overview-inner {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 46px;
+  }
+
+  .source-wellness-overview h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-wellness-spa {
+    height: 1084px;
+  }
+
+  .source-wellness-spa-pool {
+    width: 100%;
+    height: 520px;
+  }
+
+  .source-wellness-spa-treatment {
+    top: 520px;
+    width: 100%;
+    height: 300px;
+  }
+
+  .source-wellness-spa-copy {
+    bottom: 0;
+    width: 100%;
+    height: 264px;
+    padding: 54px 16px;
+  }
+
+  .source-wellness-spa-copy h2 {
+    font-size: 3.2rem;
+  }
+
+  .source-wellness-spa-copy p {
+    margin-top: 22px;
+  }
+
+  .source-wellness-heat {
+    height: 1142px;
+    padding: 80px 16px 0;
+  }
+
+  .source-wellness-heat-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .source-wellness-heat h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-wellness-heat-left {
+    top: 145px;
+    left: 0;
+    width: 48%;
+    height: 260px;
+  }
+
+  .source-wellness-heat-right {
+    top: 145px;
+    right: 0;
+    width: 48%;
+    height: 360px;
+  }
+
+  .source-wellness-heat-copy {
+    top: 470px;
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+
+  .source-wellness-fitness {
+    height: 797px;
+    padding: 0 16px;
+  }
+
+  .source-wellness-fitness-media {
+    height: 390px;
+  }
+
+  .source-wellness-fitness-copy {
+    display: flex;
+    margin-top: 28px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .source-wellness-fitness-copy h2 {
+    font-size: clamp(3.3rem, 13vw, 5rem);
+  }
+
+  .source-wellness-cta {
+    height: 398px;
+    padding: 16px;
+  }
+
+  .source-wellness-cta h2 {
+    font-size: clamp(2.7rem, 10vw, 4.3rem);
+  }
+
+  .source-winter-intro {
+    height: 365px;
+    padding: 16px;
+  }
+
+  .source-winter-intro h2 {
+    font-size: clamp(3rem, 11vw, 4.3rem);
+  }
+
+  .source-winter-experience,
+  .source-winter-experience.is-forward {
+    height: 1029px;
+    padding: 0 16px;
+  }
+
+  .source-winter-experience.is-first {
+    height: 949px;
+  }
+
+  .source-winter-experience.is-reverse {
+    height: 1149px;
+  }
+
+  .source-winter-experience-inner {
+    width: 100%;
+  }
+
+  .source-winter-experience-copy,
+  .source-winter-experience.is-reverse .source-winter-experience-copy {
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .source-winter-experience-copy h2 {
+    margin-top: 23px;
+    font-size: clamp(3rem, 11vw, 4.5rem);
+  }
+
+  .source-winter-experience-copy > p:last-child {
+    position: absolute;
+    top: 425px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .source-winter-experience-large,
+  .source-winter-experience.is-reverse .source-winter-experience-large {
+    top: 550px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+  }
+
+  .source-winter-experience-small,
+  .source-winter-experience.is-reverse .source-winter-experience-small {
+    top: 144px;
+    right: auto;
+    left: 50%;
+    width: 179px;
+    height: 200px;
+    transform: translateX(-50%);
+  }
+
+  .source-contact-marquee {
+    height: 248px;
+  }
+
+  .source-contact-marquee-track {
+    height: 120px;
+    gap: 80px;
+    margin-top: 128px;
+  }
+
+  .source-contact-marquee-track span {
+    font-size: 120px;
+  }
+
+  .source-contact-main {
+    height: 1036px;
+    padding: 80px 16px 0;
+  }
+
+  .source-contact-main-inner {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 90px;
+  }
+
+  .source-contact-image {
+    width: 100%;
+    height: 201px;
+  }
+
+  .source-contact-copy {
+    padding: 0;
+  }
+
+  .source-contact-copy h2 {
+    font-size: 3rem;
+  }
+
+  .source-contact-intro {
+    max-width: none;
+    margin-top: 20px !important;
+  }
+
+  .source-contact-details {
+    display: flex;
+    margin-top: 62px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .source-contact-details > div:last-child {
+    grid-column: auto;
+  }
+
+  .source-contact-details > div > a,
+  .source-contact-details > div > p:last-child {
+    margin-top: 16px;
+  }
+
+  /* The linked pages use distinct mobile compositions in the source export. */
+  .source-hero-bottom {
+    gap: 16px;
+  }
+
+  .source-hero-label {
+    line-height: 1.35;
+  }
+
+  .source-route-page .eyebrow {
+    line-height: 1.35;
+  }
+
+  .source-hero--rooms .source-hero-label,
+  .source-hero--dining .source-hero-label,
+  .source-hero--wellness .source-hero-label,
+  .source-hero--experiences-winter .source-hero-label {
+    font-size: 0.6rem;
+  }
+
+  .source-hero--about .source-hero-label {
+    font-size: 0.7rem;
+  }
+
+  .source-hero--about .source-hero-bottom { top: 52.645%; }
+  .source-hero--rooms .source-hero-bottom { top: 51.03%; }
+  .source-hero--dining .source-hero-bottom { top: 52.77%; }
+  .source-hero--wellness .source-hero-bottom { top: 55.22%; }
+  .source-hero--experiences-winter .source-hero-bottom {
+    top: 56%;
+    bottom: auto;
+  }
+
+  .source-hero--about .source-hero-title { top: 36.69%; }
+  .source-hero--rooms .source-hero-title { top: 35.075%; }
+  .source-hero--dining .source-hero-title { top: 36.82%; }
+  .source-hero--wellness .source-hero-title { top: 30.89%; }
+  .source-hero--experiences-winter .source-hero-title { top: 30.03%; }
+  .source-season-switch { top: 44.44%; }
+
+  .source-about-history {
+    padding-top: 105px;
+  }
+
+  .source-about-history-intro {
+    gap: 32px;
+  }
+
+  .source-about-history-heading {
+    gap: 8px;
+  }
+
+  .source-about-history-heading h2,
+  .source-about-heritage-intro h2,
+  .source-about-philosophy h2 {
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-about-history-lede {
+    max-width: 326px;
+  }
+
+  .source-history-viewport {
+    margin-top: 71px;
+  }
+
+  .source-history-card h3 {
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-about-heritage {
+    padding-top: 105px;
+  }
+
+  .source-prefooter-content h2,
+  .source-prefooter-content h3 {
+    width: 326px;
+    max-width: 100%;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-prefooter--dining .source-prefooter-content h2 {
+    font-size: 40.96px;
+  }
+
+  .source-rooms-collection-intro {
+    margin-bottom: 48px;
+  }
+
+  .source-rooms-collection-intro h2 {
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-rooms-grid {
+    gap: 80px;
+  }
+
+  .source-room-card h3 {
+    margin-top: 24px;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-room-card {
+    min-height: 403.4px;
+  }
+
+  .source-room-card > img {
+    transform: translateY(-37px) scale(1.2);
+    transform-origin: center;
+  }
+
+  .source-room-card > p {
+    line-height: 1.3;
+  }
+
+  .source-rooms-special-media {
+    top: 80px;
+    height: 393.125px;
+  }
+
+  .source-rooms-special-panel {
+    top: 472.656px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 350.375px;
+    padding: 16px;
+  }
+
+  .source-rooms-special-panel-inner {
+    height: 100%;
+    justify-content: flex-start;
+    padding: 32px;
+    border: 0;
+  }
+
+  .source-rooms-special-panel h2,
+  .source-rooms-special-panel h3 {
+    width: 294px;
+    max-width: 100%;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-rooms-special-panel p {
+    margin-top: 24px;
+    line-height: 1.3;
+  }
+
+  .source-rooms-special-panel .source-route-button {
+    margin-top: 24px;
+  }
+
+  .source-rooms-faq {
+    padding-top: 39px;
+  }
+
+  .source-rooms-faq h2 {
+    width: 358px;
+    max-width: 100%;
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-dining-restaurant {
+    height: 590.9px;
+    padding-top: 105px;
+  }
+
+  .source-dining-gallery {
+    height: 357px;
+  }
+
+  .source-dining-chef-banner {
+    height: 468.9px;
+  }
+
+  .source-dining-chef {
+    height: 1090.5px;
+  }
+
+  .source-dining-restaurant-inner {
+    gap: 32px;
+  }
+
+  .source-dining-restaurant-copy {
+    gap: 32px;
+  }
+
+  .source-dining-restaurant h2,
+  .source-dining-experience-heading h2 {
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-dining-chef-copy h2,
+  .source-dining-chef-copy h3,
+  .source-dining-bar-copy h2,
+  .source-dining-bar-copy h3 {
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-dining-chef-copy > p:last-child,
+  .source-dining-bar-copy > p:last-child {
+    margin-top: 16px;
+    line-height: 1.3;
+  }
+
+  .source-dining-restaurant-copy p,
+  .source-dining-experience-grid article > p:last-child,
+  .source-wellness-overview-copy p,
+  .source-wellness-spa-copy p,
+  .source-wellness-heat-copy p,
+  .source-wellness-fitness-copy p,
+  .source-winter-experience-copy > p:last-child,
+  .source-contact-intro,
+  .source-contact-details > div > a,
+  .source-contact-details > div > p:last-child {
+    line-height: 1.3;
+  }
+
+  .source-dining-chef-media {
+    top: 265.5px;
+    right: auto;
+    left: -19.8px;
+    width: 429.6px;
+    height: 395.3px;
+  }
+
+  .source-dining-chef-media img:last-child {
+    top: 345.45px;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    width: 429.6px;
+    height: 395.3px;
+  }
+
+  .source-dining-bar {
+    height: 652.6px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px 80px;
+  }
+
+  .source-dining-bar-media {
+    order: 2;
+    width: 100%;
+    height: 293px;
+    margin-top: 48px;
+    flex-shrink: 0;
+  }
+
+  .source-dining-bar-copy {
+    order: 1;
+    width: 100%;
+    padding: 0;
+    position: static;
+  }
+
+  .source-dining-experience {
+    height: 854.7px;
+    padding-top: 40px;
+  }
+
+  .source-wellness-overview {
+    height: 527.7px;
+    padding-top: 105px;
+  }
+
+  .source-wellness-overview-inner {
+    gap: 32px;
+  }
+
+  .source-wellness-overview-copy {
+    gap: 32px;
+  }
+
+  .source-wellness-overview h2 {
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-spa-pool {
+    top: -52px;
+    left: -39px;
+    width: 468px;
+    height: 480px;
+  }
+
+  .source-wellness-spa-treatment {
+    top: 348px;
+    right: auto;
+    left: -39px;
+    width: 468px;
+    height: 480px;
+  }
+
+  .source-wellness-spa-copy {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 226.7px;
+    padding: 32px 24px;
+  }
+
+  .source-wellness-spa-copy h2,
+  .source-wellness-spa-copy h3 {
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-spa-copy p {
+    margin-top: 32px;
+  }
+
+  .source-wellness-spa {
+    height: 1083.7px;
+  }
+
+  .source-wellness-heat h2 {
+    top: 25px;
+    left: 0;
+    width: 358px;
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-heat-left {
+    top: 36px;
+    left: -35.8px;
+    width: 429.6px;
+    height: 371.9px;
+  }
+
+  .source-wellness-heat-right {
+    top: 596px;
+    right: auto;
+    left: -35.8px;
+    width: 429.6px;
+    height: 408px;
+  }
+
+  .source-wellness-heat-copy {
+    top: 462px;
+    left: 0;
+    width: 100%;
+  }
+
+  .source-wellness-heat-copy p + p {
+    margin-top: 32px;
+  }
+
+  .source-wellness-heat {
+    height: 1141.8px;
+  }
+
+  .source-wellness-fitness {
+    height: 797.45px;
+    padding: 0 16px 80px;
+  }
+
+  .source-wellness-fitness-media {
+    width: 429.6px;
+    height: 489.6px;
+    margin-top: -77.8px;
+    margin-left: -35.8px;
+  }
+
+  .source-wellness-fitness-copy {
+    display: flex;
+    width: 100%;
+    margin-top: 28px;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .source-wellness-fitness-copy h2 {
+    width: 89px;
+    font-size: 40.96px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-fitness-copy p {
+    max-width: 250px;
+    margin-top: 32px;
+  }
+
+  .source-wellness-cta {
+    display: flex;
+    height: 397.7px;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 16px 100px;
+  }
+
+  .source-wellness-cta > div {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .source-wellness-cta h2,
+  .source-wellness-cta h3 {
+    width: 358px;
+    max-width: 100%;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-winter-intro {
+    height: 365px;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 80px 16px 100px;
+  }
+
+  .source-winter-intro h2,
+  .source-winter-intro h3 {
+    width: 358px;
+    max-width: 100%;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-winter-experience-copy,
+  .source-winter-experience.is-first .source-winter-experience-copy,
+  .source-winter-experience.is-reverse .source-winter-experience-copy {
+    top: 25px;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-copy {
+    top: 125px;
+  }
+
+  .source-winter-experience-copy h2,
+  .source-winter-experience-copy h3 {
+    margin-top: 8px;
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+
+  .source-winter-experience-copy > p:last-child {
+    top: 423px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .source-winter-experience-large,
+  .source-winter-experience.is-reverse .source-winter-experience-large {
+    top: 497.8px;
+    right: auto;
+    left: -35.8px;
+    width: 429.6px;
+    height: 479.5px;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-large {
+    top: 597.8px;
+  }
+
+  .source-winter-experience.is-forward {
+    height: 1029.3px;
+  }
+
+  .source-winter-experience.is-first {
+    height: 949.3px;
+  }
+
+  .source-winter-experience.is-reverse {
+    height: 1149.3px;
+  }
+
+  .source-prefooter {
+    height: 506.4px;
+  }
+
+  .source-winter-experience-small,
+  .source-winter-experience.is-reverse .source-winter-experience-small {
+    top: 111.6px;
+    right: auto;
+    left: 50%;
+    width: 214.8px;
+    height: 239.7px;
+    transform: translateX(-50%);
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-small {
+    top: 211.6px;
+  }
+
+  .source-contact-main-inner {
+    gap: 88px;
+  }
+
+  .source-contact-copy h2,
+  .source-contact-copy h3 {
+    font-size: 35.2px;
+    line-height: 1.15;
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-hero-container,
+  .source-hero-bottom {
+    right: 32px;
+    left: 32px;
+  }
+
+  .source-about-history,
+  .source-about-heritage,
+  .source-about-philosophy,
+  .source-rooms-collection,
+  .source-rooms-faq,
+  .source-dining-restaurant,
+  .source-dining-bar,
+  .source-dining-experience,
+  .source-wellness-overview,
+  .source-wellness-heat,
+  .source-winter-experience {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .source-rooms-grid {
+    row-gap: 48px;
+  }
+
+  .source-room-card img {
+    height: auto;
+    aspect-ratio: 1.5;
+  }
+
+  .source-dining-chef-media {
+    right: 32px;
+    width: 52vw;
+  }
+
+  .source-dining-bar {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  }
+}
+
+/* The source export uses a distinct fluid tablet composition at 810px. Keep
+   this layer separate from the desktop and phone rules so each captured
+   viewport retains its own geometry. */
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-route-page h2,
+  .source-route-page h3 {
+    letter-spacing: -0.02em;
+  }
+
+  .source-route-page p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-route-page .eyebrow {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .source-hero-title {
+    top: 40.5926%;
+    font-size: 76.8px;
+    line-height: 1.15;
+  }
+
+  .source-hero-bottom {
+    bottom: 32px;
+    gap: 16px;
+  }
+
+  .source-hero-label {
+    font-size: 0.6rem;
+    line-height: 1.35;
+  }
+
+  .source-hero-intro {
+    width: 400px;
+    max-width: calc(100% - 64px);
+    font-size: 28.8px;
+    line-height: 1.15;
+  }
+
+  .source-route-button {
+    min-height: 46px;
+    padding: 12px 24px;
+    font-size: 0.7rem;
+  }
+
+  .source-about-history {
+    height: 1154.9px;
+    padding: 145px 24px 0;
+  }
+
+  .source-about-history-intro {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 315px 315px;
+    gap: 100px;
+  }
+
+  .source-about-history-heading h2 {
+    width: 315px;
+    max-width: 315px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-about-history-lede {
+    width: 315px;
+    max-width: 315px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-history-viewport {
+    width: calc(100% + 48px);
+    margin: 75px -24px 0;
+  }
+
+  .source-history-track {
+    gap: 48px;
+    padding: 0 24px;
+  }
+
+  .source-history-card {
+    width: 289.5px;
+    flex-basis: 289.5px;
+  }
+
+  .source-history-card h3 {
+    width: 289.5px;
+    margin-bottom: 27px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-history-card img {
+    width: 347.4px;
+    height: 360px;
+    transform: translateX(-28.95px);
+  }
+
+  .source-history-card.is-portrait img {
+    height: 441.6px;
+  }
+
+  .source-history-card p {
+    width: 289.5px;
+    max-width: 289.5px;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-about-heritage {
+    height: 968.9px;
+    padding: 145px 24px 0;
+  }
+
+  .source-about-heritage-intro {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 296px 346px;
+    gap: 64px;
+  }
+
+  .source-about-heritage-intro h2 {
+    width: 296px;
+    max-width: 296px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-about-heritage-copy {
+    display: flex;
+    width: 346px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .source-about-heritage-copy p {
+    width: 346px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-about-heritage-media {
+    width: 762px;
+    max-width: 100%;
+    margin-top: 95px;
+    grid-template-columns: 359px 359px;
+    gap: 40px;
+  }
+
+  .source-about-heritage-media--timeless {
+    margin-top: 95px;
+  }
+
+  .source-about-heritage-media--timeless img {
+    width: 358.8px;
+    height: 246.2px;
+  }
+
+  .source-about-heritage-media--refined {
+    margin-top: 0;
+  }
+
+  .source-about-heritage-media--refined img {
+    width: 358.8px;
+    height: 437.6px;
+  }
+
+  .source-about-heritage-media figcaption {
+    margin-top: 20px;
+    font-size: 0.7rem;
+  }
+
+  .source-about-heritage-media figure.source-about-heritage-media--timeless {
+    transform: translate(2.1px, 22.2px);
+  }
+
+  .source-about-heritage-media figure.source-about-heritage-media--refined {
+    transform: translate(2.1px, -73.5px);
+  }
+
+  .source-about-philosophy {
+    height: 793.7px;
+    padding: 120px 32px 0;
+  }
+
+  .source-about-philosophy-inner {
+    width: 746px;
+    max-width: 100%;
+  }
+
+  .source-about-philosophy h2 {
+    width: 746px;
+    margin-top: 8px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-about-estimate {
+    width: 171px;
+    margin-top: 78px;
+  }
+
+  .source-about-philosophy-copy {
+    width: 671px;
+    margin: 54px auto 0;
+    grid-template-columns: 245.7px 245.7px;
+    gap: 180px;
+  }
+
+  .source-about-philosophy-copy > div {
+    width: 245.7px;
+    max-width: 245.7px;
+  }
+
+  .source-about-philosophy-copy p:last-child {
+    width: 245.7px;
+    max-width: 245.7px;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-prefooter--about {
+    height: 648px;
+  }
+
+  .source-prefooter--about .source-prefooter-content {
+    padding: 128px 32px;
+  }
+
+  .source-prefooter--about .source-prefooter-content h3 {
+    width: 650px;
+    max-width: 650px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-prefooter--about .source-prefooter-content {
+    transform: translateY(2.5px);
+  }
+
+  .source-contact-marquee {
+    height: 312px;
+  }
+
+  .source-contact-marquee-track {
+    height: 152px;
+    gap: 80px;
+    margin-top: 160px;
+  }
+
+  .source-contact-marquee-track span {
+    font-size: 152px;
+    line-height: 1;
+  }
+
+  .source-contact-main {
+    height: 658.4px;
+    padding: 100px 32px 0;
+  }
+
+  .source-contact-main-inner {
+    width: 746px;
+    max-width: 100%;
+    grid-template-columns: 264.8px 361px;
+    gap: 120.2px;
+  }
+
+  .source-contact-image {
+    width: 264.8px;
+    height: 353.3px;
+  }
+
+  .source-contact-copy h2,
+  .source-contact-copy h3 {
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-contact-intro {
+    width: 361px;
+    max-width: 361px;
+    margin-top: 16px !important;
+    font-size: 19.2px;
+    line-height: 1.3;
+  }
+
+  .source-contact-details {
+    width: 361px;
+    margin-top: 75px;
+    column-gap: 24px;
+    row-gap: 48px;
+  }
+
+  .source-contact-details > div > a,
+  .source-contact-details > div > p:last-child {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-rooms-collection {
+    height: 2195.1px;
+    padding: 120px 24px 0;
+  }
+
+  .source-rooms-collection-intro {
+    width: 762px;
+    max-width: 100%;
+    margin: 0 auto 48px;
+  }
+
+  .source-rooms-collection-intro h2 {
+    width: 400px;
+    margin-top: 8px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-rooms-grid {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 373px 373px;
+    column-gap: 16px;
+    row-gap: 80px;
+  }
+
+  .source-room-card {
+    min-height: 396.3px;
+  }
+
+  .source-room-card > img {
+    width: 373px;
+    height: 248.333px;
+    aspect-ratio: auto;
+    transform: translateY(-36.9px) scale(1.2);
+    transform-origin: center;
+  }
+
+  .source-room-card-meta {
+    margin-top: 25.97px;
+    font-size: 0.7rem;
+    line-height: 1.35;
+    height: 15.12px;
+  }
+
+  .source-room-card-meta > span:first-child {
+    line-height: 15.12px;
+  }
+
+  .source-room-card h3 {
+    width: 373px;
+    max-width: 100%;
+    margin-top: 25.9px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-room-card > p {
+    width: 373px;
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-rooms-special {
+    height: 888px;
+  }
+
+  .source-rooms-special-media {
+    top: -18.8px;
+    left: -81px;
+    width: 972px;
+    height: 777.6px;
+  }
+
+  .source-rooms-special-panel {
+    top: 495.2px;
+    right: 0;
+    width: 486px;
+    height: 312.5px;
+    padding: 16px;
+  }
+
+  .source-rooms-special-panel-inner {
+    height: 280.5px;
+    padding: 32px;
+    justify-content: flex-start;
+    border: 0;
+  }
+
+  .source-rooms-special-panel h2,
+  .source-rooms-special-panel h3 {
+    width: 390px;
+    max-width: 100%;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-rooms-special-panel p {
+    width: 390px;
+    max-width: 100%;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-rooms-special-panel .source-route-button {
+    margin-top: 24px;
+  }
+
+  .source-rooms-faq {
+    height: 762.75px;
+    padding: 120px 24px 0;
+  }
+
+  .source-rooms-faq-inner {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 341px 389px;
+    gap: 32px;
+  }
+
+  .source-rooms-faq h2 {
+    width: 341px;
+    max-width: 100%;
+    margin-top: 8px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-rooms-faq summary {
+    min-height: 77px;
+    font-size: 19.2px;
+    line-height: 1.3;
+  }
+
+  .source-rooms-faq summary span {
+    font-size: 24px;
+  }
+
+  .source-dining-restaurant {
+    height: 505.6px;
+    padding: 120px 24px 0;
+  }
+
+  .source-dining-restaurant-inner {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 331px 331px;
+    gap: 100px;
+    transform: translateY(25px);
+  }
+
+  .source-dining-restaurant h2 {
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-dining-restaurant-copy {
+    width: 331px;
+    gap: 16px;
+  }
+
+  .source-dining-restaurant-copy p {
+    width: 331px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-dining-gallery {
+    height: 486.7px;
+    padding: 120px 24px 80px;
+  }
+
+  .source-dining-gallery-track {
+    height: auto;
+    gap: 24px;
+  }
+
+  .source-dining-gallery-item {
+    width: 162px;
+    flex-basis: 162px;
+  }
+
+  .source-dining-gallery-item:nth-child(6) {
+    width: 222px;
+    flex-basis: 222px;
+  }
+
+  .source-dining-gallery-item--wide img {
+    height: 215px;
+  }
+
+  .source-dining-gallery-item--short img {
+    height: 107.6px;
+  }
+
+  .source-dining-gallery-item--tall img {
+    height: 215px;
+  }
+
+  .source-dining-gallery-item--medium img {
+    height: 201.4px;
+  }
+
+  .source-dining-gallery-item:nth-child(6) img {
+    height: 286.7px;
+  }
+
+  .source-dining-gallery-item:nth-child(7) img {
+    height: 209.2px;
+  }
+
+  .source-dining-chef-banner {
+    height: 525px;
+    padding-top: 100px;
+  }
+
+  .source-dining-chef-banner img {
+    height: 425px;
+  }
+
+  .source-dining-chef {
+    height: 581px;
+  }
+
+  .source-dining-chef-copy {
+    top: 192.8px;
+    left: 24px;
+    width: 341px;
+  }
+
+  .source-dining-chef-copy h2,
+  .source-dining-chef-copy h3 {
+    width: 341px;
+    margin-top: 16px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-dining-chef-copy > p:last-child {
+    width: 341px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-dining-chef-media {
+    top: 77.1px;
+    right: 18.1px;
+    width: 352.8px;
+    height: 352.8px;
+  }
+
+  .source-dining-chef-media img:last-child {
+    top: 151.5px;
+    right: auto;
+    bottom: auto;
+    left: -61px;
+    width: 202.8px;
+    height: 253.4px;
+  }
+
+  .source-dining-bar {
+    display: grid;
+    height: 600.8px;
+    padding: 120px 24px 0;
+    grid-template-columns: 365px 365px;
+    gap: 32px;
+  }
+
+  .source-dining-bar-media {
+    width: 365px;
+    height: 360.8px;
+  }
+
+  .source-dining-bar-copy {
+    top: 0;
+    width: 365px;
+    padding: 0;
+    align-self: start;
+    margin-top: 60.7px;
+  }
+
+  .source-dining-bar-copy h2,
+  .source-dining-bar-copy h3 {
+    width: 365px;
+    margin-top: 16px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-dining-bar-copy > p:last-child {
+    width: 365px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-dining-experience {
+    height: 701.1px;
+    padding: 120px 32px 180px;
+  }
+
+  .source-dining-experience-heading h2 {
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-dining-experience-grid {
+    width: 671px;
+    max-width: 100%;
+    margin: 90px auto 0;
+    grid-template-columns: 191.6px 272.7px 240.7px;
+    gap: 0;
+  }
+
+  .source-dining-experience-grid article {
+    min-height: 208px;
+    padding: 0;
+  }
+
+  .source-dining-experience-grid article:nth-child(2) {
+    padding-left: 80px;
+  }
+
+  .source-dining-experience-grid article:nth-child(3) {
+    padding-left: 32px;
+    transform: translateY(-10.4px);
+  }
+
+  .source-dining-experience-grid article > p:last-child {
+    width: 159.1px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-prefooter--dining {
+    height: 648px;
+  }
+
+  .source-prefooter--dining .source-prefooter-content {
+    padding: 128px 32px;
+  }
+
+  .source-prefooter--dining .source-prefooter-content h2 {
+    width: 650px;
+    max-width: 650px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-prefooter--dining .source-prefooter-content {
+    transform: translateY(2.5px);
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-wellness-overview {
+    height: 443.2px;
+    padding: 145px 24px 0;
+  }
+
+  .source-wellness-overview-inner {
+    width: 762px;
+    max-width: 100%;
+    grid-template-columns: 331px 331px;
+    gap: 100px;
+  }
+
+  .source-wellness-overview h2 {
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-overview-copy {
+    width: 331px;
+    gap: 16px;
+  }
+
+  .source-wellness-overview-copy p {
+    width: 331px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-wellness-spa {
+    height: 512.9px;
+  }
+
+  .source-wellness-spa-pool {
+    top: -63.3px;
+    left: -40.5px;
+    width: 486px;
+    height: 615.5px;
+  }
+
+  .source-wellness-spa-treatment {
+    top: -36.7px;
+    right: -40.5px;
+    width: 486px;
+    height: 295.6px;
+  }
+
+  .source-wellness-spa-copy {
+    right: -0.1px;
+    bottom: -25px;
+    width: 405px;
+    height: 266.5px;
+    padding: 64px 24px;
+  }
+
+  .source-wellness-spa-copy h2,
+  .source-wellness-spa-copy h3 {
+    width: 400px;
+    max-width: none;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-spa-copy p {
+    width: 400px;
+    max-width: none;
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-wellness-heat {
+    height: 588px;
+    padding: 120px 24px 0;
+  }
+
+  .source-wellness-heat-inner {
+    width: 746px;
+    max-width: 100%;
+    height: 348px;
+  }
+
+  .source-wellness-heat h2 {
+    top: 93.2px;
+    left: 0;
+    width: 218.2px;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-heat-left {
+    top: 128.2px;
+    left: -21.8px;
+    width: 261.9px;
+    height: 226.7px;
+  }
+
+  .source-wellness-heat-right {
+    top: -46.8px;
+    right: -27.3px;
+    width: 327.4px;
+    height: 417.6px;
+  }
+
+  .source-wellness-heat-copy {
+    top: 133px;
+    left: 250.2px;
+    width: 191px;
+  }
+
+  .source-wellness-heat-copy p {
+    width: 191px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-wellness-heat-copy p + p {
+    margin-top: 32px;
+  }
+
+  .source-wellness-fitness {
+    height: 643.2px;
+    padding: 0;
+  }
+
+  .source-wellness-fitness-media {
+    width: 874.8px;
+    height: 393.6px;
+    margin: 10.2px 0 0 8.1px;
+  }
+
+  .source-wellness-fitness-copy {
+    display: grid;
+    width: 729px;
+    margin: 36.2px 0 0 81px;
+    grid-template-columns: 191.6px 272.7px 240.7px;
+    gap: 0;
+  }
+
+  .source-wellness-fitness-copy h2 {
+    width: 111.6px;
+    align-self: start;
+    white-space: pre;
+    text-wrap: nowrap;
+    font-size: 51.2px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-fitness-copy p {
+    width: 240.7px;
+    max-width: 240.7px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-wellness-cta {
+    display: block;
+    height: 424.5px;
+    padding: 120px 24px 0;
+  }
+
+  .source-wellness-cta > div {
+    width: 762px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .source-wellness-cta h2,
+  .source-wellness-cta h3 {
+    width: 600px;
+    max-width: 600px;
+    margin: 8px auto 0;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-wellness-cta .source-route-button {
+    margin-top: 32px;
+  }
+
+  .source-winter-intro {
+    height: 351.4px;
+    gap: 8px;
+    padding: 120px 24px 0;
+  }
+
+  .source-winter-intro h2,
+  .source-winter-intro h3 {
+    width: 600px;
+    max-width: 600px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-winter-experience,
+  .source-winter-experience.is-forward {
+    height: 670.9px;
+    padding: 0 24px;
+  }
+
+  .source-winter-experience.is-first {
+    height: 870.9px;
+  }
+
+  .source-winter-experience.is-reverse {
+    height: 715px;
+  }
+
+  .source-winter-experience-inner {
+    width: 762px;
+    max-width: 100%;
+  }
+
+  .source-winter-experience-copy,
+  .source-winter-experience.is-first .source-winter-experience-copy,
+  .source-winter-experience.is-reverse .source-winter-experience-copy {
+    top: 25px;
+    right: auto;
+    left: 24px;
+    width: 287.5px;
+  }
+
+  .source-winter-experience.is-first .source-winter-experience-copy {
+    top: 225px;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-copy {
+    top: 25px;
+    right: 24px;
+    left: auto;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-copy > p:last-child {
+    top: 431.9px;
+  }
+
+  .source-winter-experience-copy .eyebrow {
+    width: 287.5px;
+    text-align: center;
+  }
+
+  .source-winter-experience-copy h2,
+  .source-winter-experience-copy h3 {
+    width: 287.5px;
+    margin-top: 8px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-winter-experience-copy > p:last-child {
+    position: absolute;
+    top: 412.7px;
+    right: auto;
+    left: 0;
+    width: 287.5px;
+    max-width: 287.5px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .source-winter-experience.is-first .source-winter-experience-copy > p:last-child {
+    top: 387.7px;
+  }
+
+  .source-winter-experience-large,
+  .source-winter-experience.is-reverse .source-winter-experience-large {
+    top: -56.9px;
+    right: -40.3px;
+    left: auto;
+    width: 483px;
+    height: 539.1px;
+  }
+
+  .source-winter-experience.is-first .source-winter-experience-large {
+    top: 143.1px;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-large {
+    top: -56.9px;
+    right: auto;
+    left: -40.3px;
+  }
+
+  .source-winter-experience-small,
+  .source-winter-experience.is-reverse .source-winter-experience-small {
+    top: 119.2px;
+    right: auto;
+    left: 81.5px;
+    width: 172.5px;
+    height: 192.5px;
+  }
+
+  .source-winter-experience.is-first .source-winter-experience-small {
+    top: 319.3px;
+  }
+
+  .source-winter-experience.is-reverse .source-winter-experience-small {
+    top: 163.4px;
+    right: 81.5px;
+    left: auto;
+  }
+
+  .source-prefooter--winter {
+    height: 648px;
+  }
+
+  .source-prefooter--winter .source-prefooter-content {
+    padding: 128px 32px;
+  }
+
+  .source-prefooter--winter .source-prefooter-content h3 {
+    width: 650px;
+    max-width: 650px;
+    font-size: 38.4px;
+    line-height: 1.15;
+  }
+
+  .source-prefooter--winter .source-prefooter-content {
+    transform: translateY(2.5px);
+  }
+}
+
+@media (max-width: 809.98px) {
+  .source-about-history {
+    height: 1277.3px;
+  }
+
+  .source-history-viewport {
+    margin-top: 75px;
+  }
+
+  .source-about-heritage {
+    height: 1409.7px;
+  }
+
+  .source-about-philosophy {
+    height: 844.9px;
+  }
+
+  .source-room-card > img {
+    height: 238.333px;
+    aspect-ratio: auto;
+  }
+
+  .source-room-card-meta {
+    height: 15.12px;
+    margin-top: 25.95px;
+  }
+
+  .source-room-card-meta > span:first-child {
+    line-height: 15.12px;
+  }
+
+  .source-room-card h3 {
+    margin-top: 25.94px;
+  }
+
+  .source-room-card > p {
+    margin-top: 16px;
+  }
+
+  .source-rooms-collection {
+    height: 3985.5px;
+  }
+
+  .source-rooms-special {
+    height: 903.5px;
+  }
+
+  .source-rooms-special-panel {
+    top: 473.256px;
+  }
+
+  .source-rooms-faq {
+    height: 760.98px;
+    padding-top: 40px;
+  }
+
+  .source-dining-chef-banner {
+    height: 468.9px;
+    padding-top: 180px;
+  }
+
+  .source-dining-chef-banner img {
+    height: 288.9px;
+  }
+
+  .source-contact-main {
+    height: 1035.8px;
+  }
+
+  .source-contact-main-inner {
+    gap: 24px;
+  }
+
+  .source-contact-image {
+    height: 265.2px;
+  }
+}
+
+.source-route-page .source-hero-label {
+  width: 100%;
+  letter-spacing: 0.2em;
+  line-height: 1.35;
+}
+
+.source-route-page .source-hero-intro {
+  line-height: 1.15;
+}
+
+.source-route-page .route-media-frame > img,
+.source-route-page .route-media-frame > video {
+  transform-origin: center;
+}
+
+.source-dining-chef-media > .route-media-frame:last-child > img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.source-contact-marquee-track {
+  will-change: transform;
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+html.lenis.lenis-smooth,
+html.lenis.lenis-smooth body {
+  scroll-behavior: auto;
+}
+
+@media (min-width: 1200px) {
+  .source-about-history {
+    padding-top: 180px;
+  }
+
+  .source-about-history-intro {
+    grid-template-columns: 848px 368px;
+    gap: 160px;
+  }
+
+  .source-about-history-heading h2 {
+    max-width: 848px;
+  }
+
+  .source-about-history-lede {
+    max-width: 368px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .source-history-card > .route-media-frame {
+    width: 228px;
+    height: 300px;
+  }
+
+  .source-history-card.is-portrait > .route-media-frame {
+    height: 368px;
+  }
+
+  .source-about-heritage-media--timeless > .route-media-frame {
+    height: auto;
+    aspect-ratio: 1.22;
+  }
+
+  .source-about-heritage-media--refined > .route-media-frame {
+    height: auto;
+    aspect-ratio: 0.72;
+  }
+
+  .source-room-card > .route-media-frame {
+    height: 238.333px;
+  }
+
+  .source-dining-gallery-item--wide > .route-media-frame,
+  .source-dining-gallery-item--tall > .route-media-frame {
+    height: 296px;
+  }
+
+  .source-dining-gallery-item--short > .route-media-frame {
+    height: 186px;
+  }
+
+  .source-dining-gallery-item--medium > .route-media-frame {
+    height: 357px;
+  }
+
+  .source-dining-gallery-item:nth-child(6) > .route-media-frame {
+    height: 286px;
+  }
+
+  .source-dining-gallery-item:nth-child(7) > .route-media-frame {
+    height: 288px;
+  }
+
+  .source-dining-chef-banner > .route-media-frame {
+    height: 288.9px;
+  }
+
+  .source-dining-chef-media > .route-media-frame:first-child {
+    width: 100%;
+    height: 100%;
+  }
+
+  .source-dining-chef-media > .route-media-frame:last-child {
+    top: auto;
+    right: auto;
+    bottom: -35px;
+    left: 16px;
+    width: 180px;
+    height: 225px;
+  }
+
+  .source-contact-image > .route-media-frame {
+    height: 265.2px;
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-about-heritage-media--timeless > .route-media-frame {
+    width: 358.8px;
+    height: 246.2px;
+  }
+
+  .source-about-heritage-media--refined > .route-media-frame {
+    width: 358.8px;
+    height: 437.6px;
+  }
+
+  .source-room-card > .route-media-frame {
+    width: 373px;
+    height: 248.333px;
+  }
+
+  .source-dining-gallery-item--wide > .route-media-frame,
+  .source-dining-gallery-item--tall > .route-media-frame {
+    height: 215px;
+  }
+
+  .source-dining-gallery-item--short > .route-media-frame {
+    height: 107.6px;
+  }
+
+  .source-dining-gallery-item--medium > .route-media-frame {
+    height: 201.4px;
+  }
+
+  .source-dining-gallery-item:nth-child(6) > .route-media-frame {
+    height: 286.7px;
+  }
+
+  .source-dining-gallery-item:nth-child(7) > .route-media-frame {
+    height: 209.2px;
+  }
+
+  .source-dining-chef-banner > .route-media-frame {
+    height: 425px;
+  }
+
+  .source-dining-chef-media > .route-media-frame:first-child {
+    width: 100%;
+    height: 100%;
+  }
+
+  .source-dining-chef-media > .route-media-frame:last-child {
+    top: 151.5px;
+    right: auto;
+    bottom: auto;
+    left: -61px;
+    width: 202.8px;
+    height: 253.4px;
+  }
+}
+
+.source-route-page h1.reveal,
+.source-route-page h2.reveal,
+.source-route-page h3.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .source-route-page .source-hero-container {
+    right: 0;
+    left: 0;
+    padding: 0;
+  }
+
+  .source-route-page .source-hero-bottom {
+    right: 32px;
+    left: 32px;
+    width: auto;
+  }
+
+  .source-route-page .source-hero-label {
+    width: 400px;
+    font-size: 0.6rem;
+  }
+
+  .source-route-page .source-hero--about .source-hero-label,
+  .source-hero--about .source-hero-label {
+    font-size: 0.7rem;
+  }
+
+  .source-route-page .source-hero-intro {
+    font-size: 28.8px;
+  }
+}

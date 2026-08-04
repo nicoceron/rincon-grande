@@ -1,0 +1,43 @@
+---
+import RouteMedia from './RouteMedia.astro';
+import WordSpans from './WordSpans.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const hero = page.hero;
+const isWinter = page.slug === 'experiences/winter';
+const slugClass = page.slug.replace('/', '-');
+---
+
+<section class={`source-hero source-hero--${slugClass}`} aria-labelledby="source-hero-title">
+  {hero && (
+    <div class="source-hero-media" aria-hidden="true">
+      <RouteMedia {...hero} loading="eager" parallax={false} />
+    </div>
+  )}
+  <div class="source-hero-shade" aria-hidden="true"></div>
+  <div class="source-hero-container">
+    <h1 id="source-hero-title" class="source-hero-title reveal" data-reveal data-reveal-threshold="0.25"><WordSpans text={page.eyebrow} /></h1>
+
+    {isWinter && page.secondaryLinks && (
+      <nav class="source-season-switch" aria-label="Season navigation">
+        {page.secondaryLinks.map((link) => (
+          <a
+            href={link.href}
+            class={link.active ? 'is-active' : ''}
+            aria-current={link.active ? 'page' : undefined}
+          >{link.label}</a>
+        ))}
+      </nav>
+    )}
+
+    <div class="source-hero-bottom">
+      <p class="source-hero-label">{page.title}</p>
+      <p class="source-hero-intro">{page.intro}</p>
+    </div>
+  </div>
+</section>

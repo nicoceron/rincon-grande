@@ -1,0 +1,58 @@
+---
+import SourceRouteButton from './SourceRouteButton.astro';
+import SourceRouteHero from './SourceRouteHero.astro';
+import RouteMedia from './RouteMedia.astro';
+import WordSpans from './WordSpans.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const intro = page.sections.find((section) => section.id === 'cold-weather-adventures');
+const skiing = page.sections.find((section) => section.id === 'skiing');
+const trails = page.sections.find((section) => section.id === 'trails');
+const shopping = page.sections.find((section) => section.id === 'shopping');
+const experiences = [
+  { section: skiing, className: 'is-forward is-first', small: '/assets/routes/source/winter-1.webp', smallAlt: 'A skier moving through a snowy forest' },
+  { section: trails, className: 'is-reverse', small: '/assets/routes/source/winter-4.webp', smallAlt: 'A winter skier in the mountains' },
+  { section: shopping, className: 'is-forward', small: '/assets/routes/source/winter-5.webp', smallAlt: 'A fireside winter detail' },
+];
+---
+
+<SourceRouteHero page={page} />
+
+<section class="source-winter-intro" aria-labelledby="winter-intro-title">
+  <p class="eyebrow">{intro?.eyebrow}</p>
+  <h3 id="winter-intro-title" class="reveal" data-reveal><WordSpans text={intro?.title ?? ''} /></h3>
+</section>
+
+{experiences.map(({ section, className, small, smallAlt }) => (
+  <section class={`source-winter-experience ${className}`} aria-labelledby={`winter-${section?.id}-title`}>
+    <div class="source-winter-experience-inner">
+      <div class="source-winter-experience-copy">
+        <p class="eyebrow">{section?.eyebrow}</p>
+        <h3 id={`winter-${section?.id}-title`} class="reveal" data-reveal><WordSpans text={section?.title ?? ''} /></h3>
+        <p>{section?.body?.[0]}</p>
+      </div>
+      <div class="source-winter-experience-large">
+        {section?.media && <RouteMedia {...section.media} />}
+      </div>
+      <div class="source-winter-experience-small">
+        <RouteMedia src={small} type="image" alt={smallAlt} loading="lazy" />
+      </div>
+    </div>
+  </section>
+))}
+
+<section class="source-prefooter source-prefooter--winter" aria-labelledby="winter-cta-title">
+  <div class="source-prefooter-media" aria-hidden="true">
+    <RouteMedia src="/assets/routes/source/winter-cta.webp" type="image" alt="" loading="lazy" />
+  </div>
+  <div class="source-prefooter-shade" aria-hidden="true"></div>
+  <div class="source-prefooter-content">
+    <h3 id="winter-cta-title" class="reveal" data-reveal><WordSpans text={page.cta?.title ?? ''} /></h3>
+    {page.cta && <SourceRouteButton href={page.cta.href} label={page.cta.label} />}
+  </div>
+</section>

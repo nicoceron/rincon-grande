@@ -1,0 +1,37 @@
+---
+import type { RouteMedia as RouteMediaData } from '../data/route-pages';
+
+interface Props extends RouteMediaData {
+  loading?: 'eager' | 'lazy';
+  parallax?: boolean;
+}
+
+const { type, src, alt, poster, position, loading = 'lazy', parallax = true } = Astro.props;
+const frameClass = parallax ? 'route-media-frame route-media-frame--parallax' : 'route-media-frame';
+const mediaClass = parallax ? 'route-media-parallax-content' : '';
+---
+
+<div class={frameClass} data-route-parallax={parallax ? 'true' : undefined}>
+  {type === 'video' ? (
+    <video
+      class:list={['route-media-video', mediaClass]}
+      src={src}
+      poster={poster}
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      aria-label={alt}
+      style={position ? `object-position: ${position}` : undefined}
+    ></video>
+  ) : (
+    <img
+      class={mediaClass || undefined}
+      src={src}
+      alt={alt}
+      loading={loading}
+      style={position ? `object-position: ${position}` : undefined}
+    />
+  )}
+</div>

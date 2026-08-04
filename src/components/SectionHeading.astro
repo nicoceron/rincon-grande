@@ -1,0 +1,32 @@
+---
+import WordSpans from './WordSpans.astro';
+
+const { eyebrow, title, as = 'h2', id = '', class: className = '', bare = false } = Astro.props as {
+  eyebrow: string;
+  title: string;
+  as?: 'h1' | 'h2';
+  id?: string;
+  class?: string;
+  bare?: boolean;
+};
+---
+
+{bare ? (
+  <>
+    <div class="section-rich-text" data-framer-component-type="RichTextContainer">
+      <p class="eyebrow">{eyebrow}</p>
+    </div>
+    <div class="section-rich-text" data-framer-component-type="RichTextContainer">
+      {as === 'h1' ? <h1 id={id || undefined}><WordSpans text={title} /></h1> : <h2 id={id || undefined}><WordSpans text={title} /></h2>}
+    </div>
+  </>
+) : (
+  <div class={`section-heading ${className}`}>
+    <div class="section-rich-text" data-framer-component-type="RichTextContainer">
+      <p class="eyebrow">{eyebrow}</p>
+    </div>
+    <div class="section-rich-text" data-framer-component-type="RichTextContainer">
+      {as === 'h1' ? <h1 id={id || undefined}><WordSpans text={title} /></h1> : <h2 id={id || undefined}><WordSpans text={title} /></h2>}
+    </div>
+  </div>
+)}

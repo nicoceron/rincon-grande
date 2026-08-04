@@ -1,0 +1,52 @@
+---
+const logos = [
+  { asset: 1, sourceName: 'Logo 1' },
+  { asset: 2, sourceName: 'Logo 6' },
+  { asset: 3, sourceName: 'Logo 2' },
+  { asset: 4, sourceName: 'Logo 5' },
+  { asset: 1, sourceName: 'Logo 1' },
+  { asset: 2, sourceName: 'Logo 6' },
+  { asset: 3, sourceName: 'Logo 2' },
+  { asset: 4, sourceName: 'Logo 5' },
+  { asset: 1, sourceName: 'Logo 1' },
+  { asset: 2, sourceName: 'Logo 6' },
+  { asset: 3, sourceName: 'Logo 2' },
+  { asset: 4, sourceName: 'Logo 5' },
+];
+
+---
+
+<section class="as-seen-section framer-9qnf82" aria-labelledby="as-seen-title" data-framer-name="As Seen">
+  <div class="as-seen-container framer-bp4qvc" data-framer-name="Container">
+    <div class="as-seen-content-wrap framer-c6zr7g reveal" data-reveal data-reveal-threshold="0.4" data-framer-name="Content Wrap">
+      <div class="as-seen-heading as-seen-text-wrap framer-1ii7t4z" data-framer-name="Text Wrap">
+        <div class="as-seen-richtext-variant">
+          <div class="as-seen-richtext" data-framer-component-type="RichTextContainer">
+            <p id="as-seen-title" class="eyebrow">As Seen</p>
+          </div>
+        </div>
+      </div>
+      <div class="logo-window as-seen-tick-wrap framer-u6ugz2" data-framer-name="Tick Wrap" aria-label="Press and partner logos">
+        <div class="logo-mask-container framer-1wzu9q7-container">
+          <section class="logo-mask" aria-label="Press and partner logos">
+            <ul class="logo-track">
+              {logos.map((logo) => (
+                <li aria-hidden="true">
+                  <div class={`logo-instance logo-instance-${logo.asset}`} data-framer-name="Logo">
+                    <div
+                      class="logo-svg-wrap"
+                      data-framer-name={logo.sourceName}
+                      data-framer-component-type="SVG"
+                      aria-hidden="true"
+                      style={`background-image:url('/assets/inline-svg/as-seen-${logo.asset}.svg')`}
+                    ></div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+---
+const { text } = Astro.props as { text: string };
+const words = text.split(' ');
+---
+
+{words.map((word, index) => <><span class="heading-word">{word}</span>{index < words.length - 1 ? ' ' : ''}</>)}

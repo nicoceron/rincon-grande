@@ -1,0 +1,100 @@
+---
+import RouteMedia from './RouteMedia.astro';
+import SourceRouteButton from './SourceRouteButton.astro';
+import SourceRouteHero from './SourceRouteHero.astro';
+import WordSpans from './WordSpans.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const history = page.sections.find((section) => section.id === 'history');
+const heritage = page.sections.find((section) => section.id === 'experience');
+const philosophy = page.sections.find((section) => section.id === 'philosophy');
+const historyCards = history?.cards ?? [];
+---
+
+<SourceRouteHero page={page} />
+
+<section class="source-about-history" aria-labelledby="about-history-title">
+  <div class="source-about-history-intro route-reveal" data-route-reveal>
+    <div class="source-about-history-heading">
+      <p class="eyebrow">{history?.eyebrow}</p>
+      <h2 id="about-history-title" class="reveal" data-reveal><WordSpans text={history?.title ?? ''} /></h2>
+    </div>
+    <p class="source-about-history-lede">{history?.body?.[0]}</p>
+  </div>
+
+  <div class="source-history-viewport" data-lenis-prevent role="region" aria-label="The Regent history timeline" tabindex="0">
+    <div class="source-history-track">
+      {historyCards.map((card, index) => (
+        <article class={`source-history-card ${index % 2 === 1 ? 'is-portrait' : 'is-landscape'}`}>
+          <h3>{card.title}</h3>
+          {card.image && <RouteMedia {...card.image} />}
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="source-history-pagination" aria-label="History pages">
+    {historyCards.map((_, index) => <button type="button" aria-label={`Scroll to page ${index + 1}`} data-history-page={index}>{index + 1}</button>)}
+  </div>
+</section>
+
+<section class="source-about-heritage" aria-labelledby="about-heritage-title">
+  <div class="source-about-heritage-intro">
+    <div>
+      <p class="eyebrow">{heritage?.eyebrow}</p>
+      <h2 id="about-heritage-title" class="reveal" data-reveal><WordSpans text={heritage?.title ?? ''} /></h2>
+    </div>
+    <div class="source-about-heritage-copy">
+      {heritage?.body?.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+
+  <div class="source-about-heritage-media">
+    <figure class="source-about-heritage-media--timeless">
+      {heritage?.media && <RouteMedia {...heritage.media} />}
+      <figcaption>Timeless</figcaption>
+    </figure>
+    <figure class="source-about-heritage-media--refined">
+      <RouteMedia src="/assets/routes/source/about-philosophy.webp" type="image" alt="Refined Regent interiors" />
+      <figcaption>Refined</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="source-about-philosophy" aria-labelledby="about-philosophy-title">
+  <div class="source-about-philosophy-inner">
+    <p class="eyebrow">{philosophy?.eyebrow}</p>
+    <h2 id="about-philosophy-title" class="reveal" data-reveal><WordSpans text={philosophy?.title ?? ''} /></h2>
+    <div class="source-about-estimate" aria-label="Established 1928">
+      <span>Est</span>
+      <span>1928</span>
+    </div>
+    <div class="source-about-philosophy-copy">
+      <div>
+        <p class="eyebrow">Attention to Detail</p>
+        <p>{philosophy?.body?.[0]}</p>
+      </div>
+      <div>
+        <p class="eyebrow">Intimate Excellence</p>
+        <p>{philosophy?.body?.[1]}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="source-prefooter source-prefooter--about" aria-labelledby="about-cta-title">
+  <div class="source-prefooter-media" aria-hidden="true">
+    <RouteMedia src="/assets/routes/source/about-cta.webp" type="image" alt="" loading="lazy" />
+  </div>
+  <div class="source-prefooter-shade" aria-hidden="true"></div>
+  <div class="source-prefooter-content">
+    <h3 id="about-cta-title" class="reveal" data-reveal><WordSpans text={page.cta?.title ?? ''} /></h3>
+    {page.cta && <SourceRouteButton href={page.cta.href} label={page.cta.label} />}
+  </div>
+</section>

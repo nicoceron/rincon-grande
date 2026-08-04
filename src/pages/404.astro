@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SourceRouteButton from '../components/SourceRouteButton.astro';
+---
+
+<BaseLayout pageScope="/404" bodyClass="route-page route-page--error">
+  <section class="source-error-page" aria-labelledby="route-error-title">
+    <div class="source-error-media" aria-hidden="true">
+      <video
+        src="/assets/media/LGqTc4kjWcR9vrmnI7ICgwcK7c.mp4"
+        poster="/assets/media/aWW9meKNe5PnkBcRb0ucRuo688.webp"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
+
+    <div class="source-error-content">
+      <h1 id="route-error-title"><span>404</span></h1>
+      <div class="source-error-copy">
+        <p class="source-error-label">Page Not Found</p>
+        <p class="source-error-message">The page you are looking for was not found or relocated.</p>
+        <SourceRouteButton href="/" label="Go to Homepage" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

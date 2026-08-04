@@ -1,0 +1,104 @@
+---
+import SourceRouteButton from './SourceRouteButton.astro';
+import SourceRouteHero from './SourceRouteHero.astro';
+import RouteMedia from './RouteMedia.astro';
+import WordSpans from './WordSpans.astro';
+import type { RoutePageData } from '../data/route-pages';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const restaurant = page.sections.find((section) => section.id === 'restaurant');
+const chef = page.sections.find((section) => section.id === 'chef');
+const bar = page.sections.find((section) => section.id === 'bar');
+const experiences = page.sections.find((section) => section.id === 'experiences');
+const galleryImages = [
+  ['/assets/routes/source/dining-1.webp', 'A dining table prepared at The Regent', 'wide'],
+  ['/assets/routes/source/dining-2.webp', 'A seasonal plated dish', 'short'],
+  ['/assets/routes/source/dining-3.webp', 'A fine dining detail', 'tall'],
+  ['/assets/routes/source/dining-4.webp', 'A refined dining room', 'short'],
+  ['/assets/routes/source/dining-5.webp', 'A seasonal plate', 'medium'],
+  ['/assets/routes/source/dining-6.webp', 'A wine service detail', 'short'],
+  ['/assets/routes/source/dining-7.webp', 'A dining room at The Regent', 'tall'],
+  ['/assets/routes/source/dining-8.webp', 'A chef-prepared dish', 'medium'],
+];
+---
+
+<SourceRouteHero page={page} />
+
+<section class="source-dining-restaurant" aria-labelledby="dining-restaurant-title">
+  <div class="source-dining-restaurant-inner">
+    <div>
+      <p class="eyebrow">{restaurant?.eyebrow}</p>
+      <h2 id="dining-restaurant-title" class="reveal" data-reveal><WordSpans text={restaurant?.title ?? ''} /></h2>
+    </div>
+    <div class="source-dining-restaurant-copy">
+      {restaurant?.body?.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>
+
+<section class="source-dining-gallery" aria-label="The Regent dining gallery">
+  <div class="source-dining-gallery-track">
+    {galleryImages.map(([src, alt, size]) => (
+      <figure class={`source-dining-gallery-item source-dining-gallery-item--${size}`}>
+        <RouteMedia src={src} type="image" alt={alt} loading="lazy" />
+      </figure>
+    ))}
+  </div>
+</section>
+
+<section class="source-dining-chef-banner" aria-hidden="true">
+  <RouteMedia src="/assets/routes/source/dining-9.webp" type="image" alt="" loading="lazy" />
+</section>
+
+<section class="source-dining-chef" aria-labelledby="dining-chef-title">
+  <div class="source-dining-chef-copy">
+    <p class="eyebrow">{chef?.eyebrow}</p>
+    <h3 id="dining-chef-title" class="reveal" data-reveal><WordSpans text={chef?.title ?? ''} /></h3>
+    <p>{chef?.body?.[0]}</p>
+  </div>
+  <div class="source-dining-chef-media">
+    <RouteMedia src="/assets/routes/source/dining-10.webp" type="image" alt="Chef Marco Benedetti preparing a dish" loading="lazy" />
+    <RouteMedia src="/assets/routes/source/dining-11.webp" type="image" alt="A chef finishing a plated dish" loading="lazy" />
+  </div>
+</section>
+
+<section class="source-dining-bar" aria-labelledby="dining-bar-title">
+  <div class="source-dining-bar-media">
+    <RouteMedia src="/assets/routes/source/dining-12.webp" type="image" alt="The Regent bar" loading="lazy" />
+  </div>
+  <div class="source-dining-bar-copy">
+    <p class="eyebrow">{bar?.eyebrow}</p>
+    <h3 id="dining-bar-title" class="reveal" data-reveal><WordSpans text={bar?.title ?? ''} /></h3>
+    <p>{bar?.body?.[0]}</p>
+  </div>
+</section>
+
+<section class="source-dining-experience" aria-labelledby="dining-experience-title">
+  <div class="source-dining-experience-heading">
+    <p class="eyebrow">{experiences?.eyebrow}</p>
+    <h2 id="dining-experience-title" class="reveal" data-reveal><WordSpans text={experiences?.title ?? ''} /></h2>
+  </div>
+  <div class="source-dining-experience-grid">
+    {experiences?.cards?.map((card) => (
+      <article>
+        <p class="eyebrow">{card.title}</p>
+        <p>{card.body}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="source-prefooter source-prefooter--dining" aria-labelledby="dining-cta-title">
+  <div class="source-prefooter-media" aria-hidden="true">
+    <RouteMedia src="/assets/routes/source/dining-1.webp" type="image" alt="" loading="lazy" />
+  </div>
+  <div class="source-prefooter-shade" aria-hidden="true"></div>
+  <div class="source-prefooter-content">
+    <h2 id="dining-cta-title" class="reveal" data-reveal><WordSpans text={page.cta?.title ?? ''} /></h2>
+    {page.cta && <SourceRouteButton href={page.cta.href} label={page.cta.label} />}
+  </div>
+</section>

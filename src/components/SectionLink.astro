@@ -1,0 +1,31 @@
+---
+const { href, mobileHref = href, label, class: className = '' } = Astro.props as {
+  href: string;
+  mobileHref?: string;
+  label: string;
+  class?: string;
+};
+
+const astroHref = mobileHref.startsWith('./') ? mobileHref.slice(1) || '/' : undefined;
+const initialHref = astroHref ?? href;
+const isExternal = !astroHref && /^(https?:)?\/\//.test(href);
+---
+
+<a
+  class={`section-link ${className}`}
+  href={initialHref}
+  data-desktop-href={href}
+  data-mobile-href={mobileHref}
+  data-astro-href={astroHref}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener' : undefined}
+  data-framer-name="Default"
+  data-highlight="true"
+>
+  <div class="section-link-label" data-framer-name="Label" data-framer-component-type="RichTextContainer">
+    <p>{label}</p>
+  </div>
+  <span class="section-link-underline-wrap" data-framer-name="Underline Wrap" aria-hidden="true">
+    <span class="section-link-line" data-framer-name="Line"></span>
+  </span>
+</a>

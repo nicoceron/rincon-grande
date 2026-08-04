@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AboutSection from '../components/AboutSection.astro';
+import RoomsSection from '../components/RoomsSection.astro';
+import CategoriesSection from '../components/CategoriesSection.astro';
+import AsSeenSection from '../components/AsSeenSection.astro';
+import GallerySection from '../components/GallerySection.astro';
+---
+
+<BaseLayout pageScope="/">
+  <Hero slot="before-main" />
+  <div class="page-sections">
+    <div id="nav-trigger" data-framer-name="nav-trigger" aria-hidden="true"></div>
+    <AboutSection />
+    <RoomsSection />
+    <CategoriesSection />
+    <AsSeenSection />
+    <GallerySection />
+  </div>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RoutePage from '../../components/RoutePage.astro';
+import { routePages } from '../../data/route-pages';
+---
+
+<BaseLayout title="Winter Experiences" pageScope="/experiences/winter" bodyClass="route-page">
+  <RoutePage page={routePages.winter} />
+</BaseLayout>

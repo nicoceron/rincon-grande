@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RoutePage from '../components/RoutePage.astro';
+import { routePages } from '../data/route-pages';
+---
+
+<BaseLayout title="Contact The Regent" pageScope="/contact" bodyClass="route-page route-contact">
+  <RoutePage page={routePages.contact} />
+</BaseLayout>

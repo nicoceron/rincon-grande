@@ -1,0 +1,19 @@
+---
+type BrandKind = 'small' | 'large' | 'crest' | 'dark';
+
+import InlineSvg from './InlineSvg.astro';
+
+const { kind = 'small', class: className = '' } = Astro.props as {
+  kind?: BrandKind;
+  class?: string;
+};
+
+const kinds: Record<BrandKind, 'wordmark-small' | 'wordmark-large' | 'crest' | 'wordmark-dark'> = {
+  small: 'wordmark-small',
+  large: 'wordmark-large',
+  crest: 'crest',
+  dark: 'wordmark-dark',
+};
+---
+
+<InlineSvg kind={kinds[kind]} class={className} />

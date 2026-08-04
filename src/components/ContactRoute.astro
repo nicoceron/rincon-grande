@@ -1,0 +1,45 @@
+---
+import type { RoutePageData } from '../data/route-pages';
+import RouteMedia from './RouteMedia.astro';
+import WordSpans from './WordSpans.astro';
+
+interface Props {
+  page: RoutePageData;
+}
+
+const { page } = Astro.props;
+const details = page.sections.find((section) => section.id === 'contact-details')?.cards ?? [];
+---
+
+<section class="source-contact-marquee" aria-labelledby="contact-marquee-title">
+  <h1 id="contact-marquee-title" class="sr-only">Contact</h1>
+  <div class="source-contact-marquee-track" aria-hidden="true">
+    <span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span>
+  </div>
+</section>
+
+<section class="source-contact-main" aria-labelledby="contact-title">
+  <div class="source-contact-main-inner">
+    <div class="source-contact-image">
+      <RouteMedia src="/assets/routes/source/contact.webp" type="image" alt="Lake Tahoe beside The Regent" loading="eager" />
+    </div>
+    <div class="source-contact-copy">
+      <h3 id="contact-title" class="reveal" data-reveal><WordSpans text={page.title} /></h3>
+      <p class="source-contact-intro">{page.intro}</p>
+      <div class="source-contact-details">
+        {details.map((detail) => (
+          <div>
+            <p class="eyebrow">{detail.title}</p>
+            {detail.title.toLowerCase() === 'email' ? (
+              <a href="mailto:hotel@regent.com">{detail.body}</a>
+            ) : detail.title.toLowerCase() === 'phone' ? (
+              <a href="tel:+15551234567">{detail.body}</a>
+            ) : (
+              <p>{detail.body}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
