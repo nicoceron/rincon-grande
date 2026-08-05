@@ -32,10 +32,10 @@ const fitness = page.sections.find((section) => section.id === 'fitness');
 
 <section class="source-wellness-spa" aria-labelledby="wellness-spa-title">
   <div class="source-wellness-spa-pool">
-    <RouteMedia src="/assets/routes/source/wellness-about.webp" type="image" alt="The Regent indoor pool" loading="lazy" />
+    <RouteMedia src="/assets/rincon/angler-vertical.webp" type="image" alt="Fly fisherman standing in the Limay River" loading="lazy" />
   </div>
   <div class="source-wellness-spa-treatment">
-    <RouteMedia src="/assets/routes/source/wellness-spa.webp" type="image" alt="A guest relaxing in the spa" loading="lazy" />
+    <RouteMedia src="/assets/rincon/hero-limay.webp" type="image" alt="The Limay River beside the estate" loading="lazy" />
   </div>
   <div class="source-wellness-spa-copy">
     <h3 id="wellness-spa-title" class="reveal" data-reveal><WordSpans text={spa?.eyebrow ?? ''} /></h3>
@@ -47,20 +47,20 @@ const fitness = page.sections.find((section) => section.id === 'fitness');
   <div class="source-wellness-heat-inner">
     <h2 id="wellness-heat-title" class="reveal" data-reveal><WordSpans text={heat?.eyebrow ?? ''} /></h2>
     <div class="source-wellness-heat-left">
-      <RouteMedia src="/assets/routes/source/wellness-sauna.webp" type="image" alt="Heated stones in the Regent sauna" loading="lazy" />
+      <RouteMedia src="/assets/rincon/angler-detail.webp" type="image" alt="Fly-fishing detail on the Limay" loading="lazy" />
     </div>
     <div class="source-wellness-heat-copy">
       {heat?.body?.map((paragraph) => <p>{paragraph}</p>)}
     </div>
     <div class="source-wellness-heat-right">
-      <RouteMedia src="/assets/routes/source/wellness-fitness.webp" type="image" alt="The Regent sauna room" loading="lazy" />
+      <RouteMedia src="/assets/rincon/landscape-limay.webp" type="image" alt="Open landscape along the Limay River" loading="lazy" />
     </div>
   </div>
 </section>
 
 <section class="source-wellness-fitness" aria-labelledby="wellness-fitness-title">
   <div class="source-wellness-fitness-media">
-    <RouteMedia src="/assets/routes/source/wellness-journey.webp" type="image" alt="The Regent fitness center" loading="lazy" />
+    <RouteMedia src="/assets/rincon/fishing-guide.webp" type="image" alt="Fishing guide beside the river" loading="lazy" />
   </div>
   <div class="source-wellness-fitness-copy">
     <h2 id="wellness-fitness-title" class="reveal" data-reveal><WordSpans text={fitness?.title ?? ''} /></h2>

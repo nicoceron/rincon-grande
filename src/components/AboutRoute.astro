@@ -27,7 +27,7 @@ const historyCards = history?.cards ?? [];
     <p class="source-about-history-lede">{history?.body?.[0]}</p>
   </div>
 
-  <div class="source-history-viewport" data-lenis-prevent role="region" aria-label="The Regent history timeline" tabindex="0">
+  <div class="source-history-viewport" data-lenis-prevent role="region" aria-label="The place at Rincón Grande" tabindex="0">
     <div class="source-history-track">
       {historyCards.map((card, index) => (
         <article class={`source-history-card ${index % 2 === 1 ? 'is-portrait' : 'is-landscape'}`}>
@@ -58,11 +58,11 @@ const historyCards = history?.cards ?? [];
   <div class="source-about-heritage-media">
     <figure class="source-about-heritage-media--timeless">
       {heritage?.media && <RouteMedia {...heritage.media} />}
-      <figcaption>Timeless</figcaption>
+      <figcaption>Integrated</figcaption>
     </figure>
     <figure class="source-about-heritage-media--refined">
-      <RouteMedia src="/assets/routes/source/about-philosophy.webp" type="image" alt="Refined Regent interiors" />
-      <figcaption>Refined</figcaption>
+      <RouteMedia src="/assets/rincon/hero-limay.webp" type="image" alt="The Limay River beside the lodge" />
+      <figcaption>Essential</figcaption>
     </figure>
   </div>
 </section>
@@ -71,17 +71,17 @@ const historyCards = history?.cards ?? [];
   <div class="source-about-philosophy-inner">
     <p class="eyebrow">{philosophy?.eyebrow}</p>
     <h2 id="about-philosophy-title" class="reveal" data-reveal><WordSpans text={philosophy?.title ?? ''} /></h2>
-    <div class="source-about-estimate" aria-label="Established 1928">
-      <span>Est</span>
-      <span>1928</span>
+    <div class="source-about-estimate" aria-label="Limay River, Patagonia">
+      <span>River</span>
+      <span>Limay</span>
     </div>
     <div class="source-about-philosophy-copy">
       <div>
-        <p class="eyebrow">Attention to Detail</p>
+        <p class="eyebrow">Attentive service</p>
         <p>{philosophy?.body?.[0]}</p>
       </div>
       <div>
-        <p class="eyebrow">Intimate Excellence</p>
+        <p class="eyebrow">Intimate scale</p>
         <p>{philosophy?.body?.[1]}</p>
       </div>
     </div>
@@ -90,7 +90,7 @@ const historyCards = history?.cards ?? [];
 
 <section class="source-prefooter source-prefooter--about" aria-labelledby="about-cta-title">
   <div class="source-prefooter-media" aria-hidden="true">
-    <RouteMedia src="/assets/routes/source/about-cta.webp" type="image" alt="" loading="lazy" />
+    <RouteMedia src="/assets/rincon/lodge-garden.webp" type="image" alt="" loading="lazy" />
   </div>
   <div class="source-prefooter-shade" aria-hidden="true"></div>
   <div class="source-prefooter-content">

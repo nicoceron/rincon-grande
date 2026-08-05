@@ -1,5 +1,6 @@
 ---
 import SocialIcon from './SocialIcon.astro';
+import InlineSvg from './InlineSvg.astro';
 
 const isHome = Astro.url.pathname === '/';
 const homeHref = '/';
@@ -7,11 +8,11 @@ const mobileHomeHref = isHome ? './' : '/';
 const astroHrefFor = (href: string) => href.startsWith('./') ? href.slice(1) || '/' : undefined;
 const mainLinks = [
   ['Home', homeHref, mobileHomeHref],
-  ['About', '/about', './about'],
-  ['Rooms', '/rooms', './rooms'],
+  ['The Estate', '/about', './about'],
+  ['The Lodge', '/rooms', './rooms'],
   ['Dining', '/dining', './dining'],
-  ['Wellness', '/wellness', './wellness'],
-  ['Experiences', '/experiences/winter', './experiences/winter'],
+  ['Fishing', '/wellness', './wellness'],
+  ['Hunting', '/experiences/winter', './experiences/winter'],
 ];
 ---
 
@@ -26,26 +27,26 @@ const mainLinks = [
             data-desktop-href={homeHref}
             data-mobile-href={mobileHomeHref}
             data-astro-href="/"
-            aria-label="The Regent home"
+            aria-label="Rincón Grande home"
             data-framer-name="Footer Logo"
           >
-            <div class="footer-logo-mark" data-framer-component-type="SVG" aria-hidden="true"></div>
+            <InlineSvg kind="footer-logo" class="footer-logo-mark" />
           </a>
           <div class="footer-columns" data-framer-name="Wrap">
             <div class="footer-column footer-book framer-1pmrm2t" data-framer-name="Item">
               <div class="footer-heading" data-framer-name="Text" data-framer-component-type="RichTextContainer">
-                <p class="eyebrow">Book your stay</p>
+                <p class="eyebrow">Plan your stay</p>
               </div>
               <div class="footer-copy-wrap" data-framer-name="Wrap">
                 <div class="footer-rich-text" data-framer-component-type="RichTextContainer">
-                  <p class="footer-large-copy">Experience timeless luxury in every season.</p>
+                  <p class="footer-large-copy">An authentic corner of Patagonia.</p>
                 </div>
               </div>
               <div class="footer-book-button-container">
                 <a class="footer-book-button button-fill" href="https://booking.com" target="_blank" rel="noopener" data-framer-name="Desktop">
                   <div class="footer-button-wrapper" data-framer-name="Button Wrapper">
                     <div class="footer-rich-text" data-framer-name="Text" data-framer-component-type="RichTextContainer">
-                      <p>Book Now</p>
+                      <p>Book</p>
                     </div>
                     <div class="footer-button-fill" data-framer-name="Button Fill" aria-hidden="true"></div>
                   </div>
@@ -58,13 +59,13 @@ const mainLinks = [
                 <p class="eyebrow">Address</p>
               </div>
               <div class="footer-address-copy" data-framer-component-type="RichTextContainer">
-                <p>2847 Lakeshore Boulevard South Lake Tahoe, CA 96150</p>
+                <p>National Route 237, km 1614 Neuquén, Patagonia</p>
               </div>
             </div>
 
             <div class="footer-column footer-main-links framer-koz2tu" data-framer-name="Item">
               <div class="footer-heading" data-framer-name="Text" data-framer-component-type="RichTextContainer">
-                <p class="eyebrow">Main</p>
+                <p class="eyebrow">Navigation</p>
               </div>
               <div class="footer-link-list" data-footer-link-list data-framer-name="Wrap">
                 {mainLinks.map(([label, desktopHref, mobileHref]) => (
@@ -96,7 +97,7 @@ const mainLinks = [
                 <div class="footer-link-container">
                   <a href="/contact" data-desktop-href="/contact" data-mobile-href="./contact" data-astro-href="/contact" data-framer-name="Dark">
                     <div class="footer-link-underline" data-framer-name="Underline" aria-hidden="true"></div>
-                    <div class="footer-rich-text" data-framer-component-type="RichTextContainer"><p>Contact Us</p></div>
+                    <div class="footer-rich-text" data-framer-component-type="RichTextContainer"><p>Contact</p></div>
                   </a>
                 </div>
               </div>
@@ -118,11 +119,11 @@ const mainLinks = [
           </div>
         </div>
         <div class="footer-rich-text" data-framer-component-type="RichTextContainer">
-          <p class="coordinates">46.6863° N, 8.1728° E</p>
+          <p class="coordinates">Limay River · Patagonia</p>
         </div>
         <div class="legal-line" data-framer-name="Legal">
           <div class="footer-rich-text" data-framer-component-type="RichTextContainer">
-            <p class="copyright">©2025. All right reserved</p>
+            <p class="copyright">©2026. All rights reserved</p>
           </div>
           <div class="legal-separator" data-framer-component-type="SVG" data-framer-name="Line" aria-hidden="true">
             <div class="svg-container">
@@ -130,7 +131,7 @@ const mainLinks = [
             </div>
           </div>
           <div class="footer-rich-text" data-framer-component-type="RichTextContainer">
-            <p><a class="credit" href="https://flowit.supply" target="_blank" rel="noopener">By Flowit Suppy</a></p>
+            <p><a class="credit" href="https://flowit.supply" target="_blank" rel="noopener">Rincón Grande · Limay</a></p>
           </div>
         </div>
       </div>

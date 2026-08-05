@@ -115,6 +115,7 @@ const routeParallaxFrames = [...document.querySelectorAll('.source-route-page [d
 );
 const routeRevealElements = [...document.querySelectorAll('[data-route-reveal]')];
 const contactMarqueeTrack = document.querySelector('.source-contact-marquee-track');
+const imageTransitionContainers = [...document.querySelectorAll('[data-image-transition]')];
 
 if (aboutImage && aboutImageOverlay) {
   if (prefersReducedMotion || !('IntersectionObserver' in window)) {
@@ -190,8 +191,9 @@ function syncRouteParallax() {
   if (!routeParallaxFrames.length) return;
   if (prefersReducedMotion) {
     routeParallaxFrames.forEach((frame) => {
-      const media = frame.querySelector('.route-media-parallax-content');
-      if (media) media.style.transform = 'none';
+      frame.querySelectorAll('.route-media-parallax-content').forEach((media) => {
+        media.style.transform = 'none';
+      });
     });
     return;
   }
@@ -207,14 +209,51 @@ function syncRouteParallax() {
     ? 1206.6 + desktopHeightDelta * 0.79667
     : Math.max(1350, window.innerHeight * 1.5);
   routeParallaxFrames.forEach((frame) => {
-    const media = frame.querySelector('.route-media-parallax-content');
-    if (!media) return;
+    const media = [...frame.querySelectorAll('.route-media-parallax-content')];
+    if (!media.length) return;
     const documentTop = frame.getBoundingClientRect().top + window.scrollY;
     const start = Math.max(0, documentTop - viewportLead);
     const progress = Math.min(1, Math.max(0, (window.scrollY - start) / duration));
     const offset = -37 + progress * travel;
-    media.style.transform = `translateY(${offset.toFixed(3)}px) scale(1.2)`;
+    media.forEach((item) => {
+      item.style.transform = `translateY(${offset.toFixed(3)}px) scale(1.2)`;
+    });
   });
+}
+
+function setupImageTransition(container) {
+  const layers = [...container.querySelectorAll('.image-transition-layer')];
+  if (layers.length < 2) return;
+
+  let activeIndex = Math.max(0, layers.findIndex((layer) => layer.classList.contains('is-active')));
+  let timer;
+  let isVisible = true;
+  const interval = Math.max(1000, Number(container.dataset.transitionInterval) || 5000);
+
+  const schedule = () => {
+    if (timer) window.clearTimeout(timer);
+    if (prefersReducedMotion || document.hidden || !isVisible) return;
+    timer = window.setTimeout(() => {
+      layers[activeIndex].classList.remove('is-active');
+      activeIndex = (activeIndex + 1) % layers.length;
+      layers[activeIndex].classList.add('is-active');
+      schedule();
+    }, interval);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries.some((entry) => entry.isIntersecting);
+        schedule();
+      },
+      { threshold: 0.01 },
+    );
+    observer.observe(container);
+  }
+
+  document.addEventListener('visibilitychange', schedule);
+  schedule();
 }
 
 function syncRouteReveals() {
@@ -255,6 +294,7 @@ syncRoomsMediaMotion();
 syncRouteParallax();
 syncRouteReveals();
 syncContactMarquee();
+imageTransitionContainers.forEach(setupImageTransition);
 window.addEventListener('scroll', syncNavTheme, { passive: true });
 window.addEventListener('resize', syncNavTheme);
 window.addEventListener('scroll', syncHeroVideoScale, { passive: true });
@@ -340,10 +380,10 @@ function setMenu(open) {
       <p class="eyebrow">Navigation</p>
       <div class="nav-panel-links">
         <a data-nav-link href="${menuPrefix}dining">Dining</a>
-        <a data-nav-link href="${menuPrefix}about">About</a>
-        <a data-nav-link href="${menuPrefix}rooms">Rooms</a>
-        <a data-nav-link href="${menuPrefix}wellness">Wellness</a>
-        <a data-nav-link href="${menuPrefix}experiences/winter">Experiences</a>
+        <a data-nav-link href="${menuPrefix}about">The Estate</a>
+        <a data-nav-link href="${menuPrefix}rooms">The Lodge</a>
+        <a data-nav-link href="${menuPrefix}wellness">Fishing</a>
+        <a data-nav-link href="${menuPrefix}experiences/winter">Hunting</a>
         <a data-nav-link href="${menuPrefix}contact">Contact</a>
       </div>
     `;

@@ -6,12 +6,19 @@ interface Props extends RouteMediaData {
   parallax?: boolean;
 }
 
-const { type, src, alt, poster, position, loading = 'lazy', parallax = true } = Astro.props;
+const { type, src, alt, poster, position, transition = [], loading = 'lazy', parallax = true } = Astro.props;
 const frameClass = parallax ? 'route-media-frame route-media-frame--parallax' : 'route-media-frame';
 const mediaClass = parallax ? 'route-media-parallax-content' : '';
+const transitionSources = type === 'image' ? [src, ...transition] : [src];
+const hasTransition = transitionSources.length > 1;
 ---
 
-<div class={frameClass} data-route-parallax={parallax ? 'true' : undefined}>
+<div
+  class={frameClass}
+  data-route-parallax={parallax ? 'true' : undefined}
+  data-image-transition={hasTransition ? 'true' : undefined}
+  data-transition-interval={hasTransition ? '5000' : undefined}
+>
   {type === 'video' ? (
     <video
       class:list={['route-media-video', mediaClass]}
@@ -26,12 +33,15 @@ const mediaClass = parallax ? 'route-media-parallax-content' : '';
       style={position ? `object-position: ${position}` : undefined}
     ></video>
   ) : (
-    <img
-      class={mediaClass || undefined}
-      src={src}
-      alt={alt}
-      loading={loading}
-      style={position ? `object-position: ${position}` : undefined}
-    />
+    transitionSources.map((source, index) => (
+      <img
+        class:list={[mediaClass, 'image-transition-layer', index === 0 ? 'is-active' : undefined]}
+        src={source}
+        alt={index === 0 ? alt : ''}
+        aria-hidden={index === 0 ? undefined : 'true'}
+        loading={loading}
+        style={position ? `object-position: ${position}` : undefined}
+      />
+    ))
   )}
 </div>

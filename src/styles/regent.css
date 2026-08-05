@@ -531,6 +531,22 @@ h2 {
   transform-origin: 50% 50%;
 }
 
+[data-image-transition] .image-transition-layer {
+  opacity: 0;
+  transition: opacity 900ms ease-in-out;
+}
+
+[data-image-transition] .image-transition-layer.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-image-transition] .image-transition-layer {
+    transition: none;
+  }
+}
+
 .hero-shade {
   background: transparent;
 }
@@ -1155,8 +1171,6 @@ h2 {
   display: block;
   height: 55px;
   flex: 0 0 auto;
-  background: url('/assets/inline-svg/footer-logo.svg') center / 100% 100% no-repeat;
-  image-rendering: pixelated;
 }
 
 .footer-logo-svg {
@@ -4088,7 +4102,7 @@ h2 {
   transform: none;
 }
 
-/* File-based destination pages. These pages share the captured Regent chrome
+/* File-based destination pages. These pages share the captured Rincón Grande chrome
    but have their own content rhythm, media blocks, cards, and detail states. */
 .route-page {
   background: var(--cream);
@@ -4112,6 +4126,29 @@ h2 {
 
 .route-page .brand-mark-light {
   opacity: 0;
+}
+
+/* Center the overlay marks against the full viewport when a visible scrollbar
+   makes the document area narrower than the captured viewport. */
+.hero-center,
+.hero-bottom {
+  left: calc((100vw - 100% - 64px) / 2);
+}
+
+.nav-logo-wrap {
+  position: relative;
+  left: calc((100vw - 100% - 32px) / 2);
+}
+
+@media (max-width: 809.98px) {
+  .hero-center,
+  .hero-bottom {
+    left: calc((100vw - 100% - 32px) / 2);
+  }
+
+  .nav-logo-wrap {
+    left: calc((100vw - 100% - 32px) / 2);
+  }
 }
 
 .route-page .main-wrap {

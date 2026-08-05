@@ -21,7 +21,7 @@ const details = page.sections.find((section) => section.id === 'contact-details'
 <section class="source-contact-main" aria-labelledby="contact-title">
   <div class="source-contact-main-inner">
     <div class="source-contact-image">
-      <RouteMedia src="/assets/routes/source/contact.webp" type="image" alt="Lake Tahoe beside The Regent" loading="eager" />
+      <RouteMedia src="/assets/rincon/hero-limay.webp" type="image" alt="The Limay River beside Rincón Grande" loading="eager" />
     </div>
     <div class="source-contact-copy">
       <h3 id="contact-title" class="reveal" data-reveal><WordSpans text={page.title} /></h3>
@@ -31,7 +31,7 @@ const details = page.sections.find((section) => section.id === 'contact-details'
           <div>
             <p class="eyebrow">{detail.title}</p>
             {detail.title.toLowerCase() === 'email' ? (
-              <a href="mailto:hotel@regent.com">{detail.body}</a>
+              <a href="mailto:reservas@rincon-grande.com">{detail.body}</a>
             ) : detail.title.toLowerCase() === 'phone' ? (
               <a href="tel:+15551234567">{detail.body}</a>
             ) : (

@@ -2,14 +2,14 @@
 import WordSpans from './WordSpans.astro';
 
 const gallery = [
-  'MyoZhomLijmbkkTtuMHk0uiLxNA.webp',
-  'rbHy0w4VSqtJ82AlF0184UUi8.webp',
-  'stq9B48TBbWNYUTiJG9wmySzFGs.webp',
-  'VHEwMdZ6xllcrUL4Tser2PKLHk.webp',
-  'U8qvv4WN6R6xtYcln4X3LFdesQ.webp',
-  'QbmL2f9jkX5CjVUG9F97LVHgBg.webp',
-  'tZ2Ol1bWlRsbIL29NQISrMY7v3I.webp',
-  'caPlFqrim8er8OYBAktsRm8HNEM.webp',
+  'lodge-garden.webp',
+  'hero-limay.webp',
+  'angler-wide.webp',
+  'hunting-wide.webp',
+  'riders-wide.webp',
+  'landscape-mountains.webp',
+  'lodge-living.webp',
+  'campfire.webp',
 ];
 
 // Keep all eight images mounted so a drag can move every card continuously.
@@ -22,20 +22,20 @@ const initialSlots = [0, 1, 2, 3, 5, 6, 7, 4];
     <div class="gallery-content-wrap framer-j34tqm reveal" data-reveal data-reveal-threshold="0.4" data-framer-name="Content Wrap">
       <div class="gallery-heading framer-7ino0d" data-framer-name="Heading">
         <div class="gallery-rich-text" data-framer-component-type="RichTextContainer">
-          <p class="eyebrow">Gallery</p>
+        <p class="eyebrow">Gallery</p>
         </div>
         <div class="gallery-rich-text" data-framer-component-type="RichTextContainer">
-          <h2 id="gallery-title"><WordSpans text="A Glimpse of The Regent" /></h2>
+          <h2 id="gallery-title"><WordSpans text="A glimpse of Rincón Grande" /></h2>
         </div>
       </div>
-      <div class="gallery-window gallery-carousel framer-zc0zd4-container" data-gallery-window role="region" tabindex="0" aria-label="The Regent gallery">
+      <div class="gallery-window gallery-carousel framer-zc0zd4-container" data-gallery-window role="region" tabindex="0" aria-label="Rincón Grande gallery">
         <div class="gallery-stage">
           <div class="gallery-track">
             {initialSlots.map((imageIndex, slotIndex) => (
               <div class={`gallery-card gallery-card-${slotIndex + 1}`}>
                 <img
                   class={`gallery-image gallery-image-${slotIndex + 1}`}
-                  src={`/assets/media/${gallery[imageIndex]}`}
+                  src={`/assets/rincon/${gallery[imageIndex]}`}
                   data-gallery-slot={slotIndex}
                   data-gallery-index={imageIndex}
                   alt=""
@@ -65,7 +65,7 @@ const initialSlots = [0, 1, 2, 3, 5, 6, 7, 4];
         <path id="gallery-drag-cursor-path" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50" />
       </defs>
       <text>
-        <textPath href="#gallery-drag-cursor-path" startOffset="7" dominant-baseline="hanging">DRAG - DRAG - DRAG - DRAG - </textPath>
+      <textPath href="#gallery-drag-cursor-path" startOffset="7" dominant-baseline="hanging">DRAG - DRAG - DRAG - </textPath>
       </text>
     </svg>
     <span></span>

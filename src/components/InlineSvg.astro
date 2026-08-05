@@ -1,10 +1,9 @@
 ---
-import stamp from '../assets/inline-svg/stamp.svg?raw';
-import wordmarkSmall from '../assets/inline-svg/wordmark-small.svg?raw';
-import wordmarkDark from '../assets/inline-svg/wordmark-dark.svg?raw';
-import wordmarkLarge from '../assets/inline-svg/wordmark-large.svg?raw';
-import crest from '../assets/inline-svg/crest.svg?raw';
-import footerLogo from '../assets/inline-svg/footer-logo.svg?raw';
+import rinconWordmarkSmall from '../assets/inline-svg/rincon-wordmark-small-script.svg?raw';
+import rinconWordmarkLarge from '../assets/inline-svg/rincon-wordmark-large-script.svg?raw';
+import rinconFooterLogo from '../assets/inline-svg/rincon-footer-logo-script.svg?raw';
+import logoSymbol from '../assets/inline-svg/logo-symbol.svg?raw';
+import logoSymbolCrest from '../assets/inline-svg/logo-symbol-crest.svg?raw';
 import asSeen1 from '../assets/inline-svg/as-seen-1.svg?raw';
 import asSeen2 from '../assets/inline-svg/as-seen-2.svg?raw';
 import asSeen3 from '../assets/inline-svg/as-seen-3.svg?raw';
@@ -26,12 +25,12 @@ const { kind, class: className = '', id = '', label = '' } = Astro.props as {
   label?: string;
 };
 const sources: Record<SvgKind, string> = {
-  stamp,
-  'wordmark-small': wordmarkSmall,
-  'wordmark-dark': wordmarkDark,
-  'wordmark-large': wordmarkLarge,
-  crest,
-  'footer-logo': footerLogo,
+  'wordmark-small': rinconWordmarkSmall,
+  'wordmark-dark': rinconWordmarkSmall,
+  'wordmark-large': rinconWordmarkLarge,
+  stamp: logoSymbol,
+  crest: logoSymbolCrest,
+  'footer-logo': rinconFooterLogo,
   'as-seen-1': asSeen1,
   'as-seen-2': asSeen2,
   'as-seen-3': asSeen3,
