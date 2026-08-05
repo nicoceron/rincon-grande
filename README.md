@@ -1,6 +1,6 @@
-# Regent Astro site
+# Rincón Grande Astro site
 
-This repository contains the Regent hospitality template rebuilt as a maintainable Astro site. The home page is the captured standalone source at `/`; the captured internal destinations are also represented as normal Astro routes.
+This repository contains the Rincón Grande hospitality site rebuilt as a maintainable Astro site. The home page is the captured standalone source at `/`; the internal destinations are also represented as normal Astro routes.
 
 ## Project structure
 
@@ -27,8 +27,4 @@ npm run build
 npm run preview
 ```
 
-The source-of-truth export and migration ledger live outside this repository at:
-
-`/Users/ceron/Developer/Projects/framer-html-exporter/exports/regent-template-standalone.html`
-
-`/Users/ceron/Developer/Projects/framer-html-exporter/exports/regent-template-export/ASTRO_MIGRATION_TRACKER.csv`
+The source-of-truth export and migration ledger live outside this repository.
