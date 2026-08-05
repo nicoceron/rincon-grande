@@ -272,43 +272,65 @@ window.addEventListener('resize', syncRouteReveals);
 window.addEventListener('scroll', syncContactMarquee, { passive: true });
 window.addEventListener('resize', syncContactMarquee);
 
-function syncLogoTrackMotion() {
-  if (!logoTrack) return;
-  if (prefersReducedMotion) {
-    logoTrack.style.transform = 'translateX(0)';
-    return;
-  }
+/* Framer's source ticker runs left at 60 px/s. The four authored logos are
+   repeated three times in the Astro markup, so travelling from item 1 to item
+   5 produces a genuinely seamless loop at every breakpoint. */
+let logoTrackAnimation;
+let logoTrackInView = false;
+let logoResizeFrame;
 
-  const width = window.innerWidth;
-  const [start, end, maximum] = width >= 1200
-    ? [4280, 5200, -38.5]
-    : width >= 810
-      ? [3600, 4700, -18.5]
-      : [3830, 5000, -45.5];
-  const progress = Math.min(1, Math.max(0, (window.scrollY - start) / Math.max(1, end - start)));
-  logoTrack.style.transform = `translateX(${(maximum * progress).toFixed(3)}px)`;
+function syncLogoPlayback() {
+  if (!logoTrackAnimation) return;
+  if (logoTrackInView && !document.hidden) logoTrackAnimation.play();
+  else logoTrackAnimation.pause();
 }
 
-function syncLogoCount() {
+function buildLogoTicker() {
   if (!logoTrack) return;
-  const desktopOnly = [...logoTrack.querySelectorAll('[data-desktop-logo]')];
-  if (window.innerWidth >= 1200) {
-    if (desktopOnly.length) return;
-    [...logoTrack.children].slice(0, 4).forEach((item) => {
-      const clone = item.cloneNode(true);
-      clone.setAttribute('data-desktop-logo', 'true');
-      logoTrack.appendChild(clone);
+  logoTrackAnimation?.cancel();
+  logoTrackAnimation = undefined;
+  logoTrack.style.transform = 'translate3d(0, 0, 0)';
+
+  if (motionPreference.matches) return;
+  const items = [...logoTrack.children];
+  if (items.length < 5) return;
+
+  const loopDistance = items[4].offsetLeft - items[0].offsetLeft;
+  if (loopDistance <= 0) return;
+
+  logoTrackAnimation = logoTrack.animate(
+    [
+      { transform: 'translate3d(0, 0, 0)' },
+      { transform: `translate3d(-${loopDistance}px, 0, 0)` },
+    ],
+    {
+      duration: (loopDistance / 60) * 1000,
+      easing: 'linear',
+      iterations: Infinity,
+    },
+  );
+  syncLogoPlayback();
+}
+
+if (logoTrack) {
+  if ('IntersectionObserver' in window) {
+    const logoObserver = new IntersectionObserver((entries) => {
+      logoTrackInView = entries.some((entry) => entry.isIntersecting);
+      syncLogoPlayback();
     });
+    logoObserver.observe(logoTrack);
   } else {
-    desktopOnly.forEach((item) => item.remove());
+    logoTrackInView = true;
   }
-}
 
-syncLogoCount();
-syncLogoTrackMotion();
-window.addEventListener('scroll', syncLogoTrackMotion, { passive: true });
-window.addEventListener('resize', syncLogoTrackMotion);
-window.addEventListener('resize', syncLogoCount);
+  buildLogoTicker();
+  document.addEventListener('visibilitychange', syncLogoPlayback);
+  motionPreference.addEventListener('change', buildLogoTicker);
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(logoResizeFrame);
+    logoResizeFrame = requestAnimationFrame(buildLogoTicker);
+  });
+}
 
 function setMenu(open) {
   if (!nav || !menuToggle || !navPanel) return;
