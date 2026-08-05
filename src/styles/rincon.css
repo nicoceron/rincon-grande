@@ -460,7 +460,6 @@ h2 {
 
 .site-nav.is-scrolled {
   background: var(--cream);
-  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
   color: #000;
 }
 
@@ -577,7 +576,7 @@ h2 {
   margin-top: calc(32px * var(--rincon-mark-scale));
   align-items: center;
   justify-content: center;
-  gap: calc(24px * var(--rincon-mark-scale));
+  gap: 32px;
   color: var(--white);
 }
 
@@ -3076,7 +3075,7 @@ h2 {
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  gap: calc(32px * var(--rincon-mark-scale));
+  gap: 32px;
 }
 
 .hero-headline-wrap {
@@ -4115,7 +4114,6 @@ h2 {
 
 .route-page .site-nav {
   background: rgba(253, 249, 239, 0.98);
-  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
   color: var(--ink);
 }
 
@@ -5007,5 +5005,259 @@ h2 {
 
   .nav-logo {
     max-width: 100%;
+  }
+}
+
+/* Navbar fidelity pass: these dimensions follow the rendered standalone
+   export. The Rincon wordmark remains intentionally brand-specific. */
+.landing-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.nav-container {
+  width: 100%;
+  height: auto;
+}
+
+.desktop-nav,
+.nav-padding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.nav-padding {
+  width: 100%;
+  height: 72px;
+  min-height: 0;
+  padding: 0 16px;
+}
+
+.nav-main {
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  height: 72px;
+  margin: 0;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.nav-menu,
+.nav-logo-wrap,
+.nav-item {
+  min-width: 0;
+}
+
+.nav-menu,
+.nav-logo-wrap,
+.nav-item {
+  flex: 1 0 0;
+}
+
+.nav-menu {
+  height: min-content;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.nav-logo-wrap {
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  width: 87px;
+  height: 18px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.brand-mark-variant {
+  flex: 0 0 auto;
+}
+
+.nav-item {
+  height: 72px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.nav-book {
+  width: min-content;
+  height: min-content;
+  flex: 0 1 auto;
+  padding: 1px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.nav-button-wrapper {
+  display: flex;
+  width: min-content;
+  min-width: 100px;
+  height: min-content;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border-radius: 2px;
+  background: rgb(205, 73, 87);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.nav-button-text {
+  white-space: pre;
+}
+
+.nav-button-fill {
+  top: 0;
+  bottom: 0;
+  left: -286px;
+  width: 180px;
+  height: auto;
+}
+
+.nav-bottom-border {
+  background: rgba(33, 33, 33, 0.08);
+  opacity: 0;
+  transform: none;
+}
+
+.site-nav.is-scrolled .nav-bottom-border,
+.route-contact .site-nav .nav-bottom-border {
+  background: rgb(228, 228, 228);
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.nav-panel {
+  height: 100vh;
+}
+
+.site-nav.is-open,
+.site-nav.is-open .landing-nav {
+  height: 100vh;
+}
+
+.nav-panel-inner {
+  width: calc(100% - 32px);
+  height: calc(100vh - 72px);
+  margin: 72px auto 0;
+  padding: 80px;
+  box-sizing: border-box;
+  gap: 24px;
+  justify-content: center;
+}
+
+.nav-panel-links {
+  margin-top: 0;
+  gap: 0;
+}
+
+@media (min-width: 810px) and (max-width: 1199.98px),
+  (max-width: 809.98px) {
+  .nav-bottom-border {
+    background: rgba(33, 33, 33, 0.08);
+  }
+}
+
+@media (max-width: 809.98px) {
+  .nav-main {
+    justify-content: flex-end;
+  }
+
+  .nav-menu,
+  .nav-logo-wrap,
+  .nav-item {
+    flex: 1 0 0;
+  }
+
+  .nav-logo-wrap {
+    position: relative;
+    left: auto;
+    width: auto;
+    height: 32px;
+    transform: none;
+  }
+
+  .nav-item {
+    height: 72px;
+  }
+
+  .nav-logo {
+    width: 87px;
+    height: 32px;
+    max-width: none;
+  }
+
+  .nav-panel-inner {
+    width: calc(100% - 32px);
+    height: calc(100vh - 72px);
+    margin: 72px 16px 0;
+    padding: 64px 0 0;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .nav-panel-links {
+    margin-top: 0;
+    gap: 10px;
+  }
+}
+
+/* Keep the brand-specific two-line wordmark centered in the source-sized
+   logo slot when the light/dark theme swaps on scroll. */
+.nav-logo .brand-mark-variant {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: calc(87px * var(--rincon-mark-scale));
+  height: calc(32px * var(--rincon-mark-scale));
+  transform: translate(-50%, -50%);
+}
+
+.nav-logo .brand-mark-variant + .brand-mark-variant {
+  top: 50%;
+  left: 50%;
+}
+
+.nav-logo .brand-mark {
+  position: absolute;
+  inset: 0;
+  width: calc(87px * var(--rincon-mark-scale));
+  height: calc(32px * var(--rincon-mark-scale));
+}
+
+@media (max-width: 809.98px) {
+  .nav-logo .brand-mark-variant {
+    height: calc(32px * var(--rincon-mark-scale));
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-wordmark {
+    transform: translateY(-21px);
+  }
+
+  .hero-estate-wrap {
+    transform: translateY(-60.75px);
   }
 }

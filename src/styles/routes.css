@@ -109,7 +109,6 @@
 
 .route-page .site-nav.is-scrolled {
   background: var(--cream);
-  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
   color: var(--ink);
 }
 
@@ -141,7 +140,6 @@
 
 .route-contact .site-nav {
   background: var(--cream);
-  border-bottom: 1px solid rgba(55, 11, 10, 0.14);
   color: var(--ink);
 }
 
