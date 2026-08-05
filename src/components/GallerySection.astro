@@ -40,7 +40,6 @@ const initialSlots = [0, 1, 2, 3, 5, 6, 7, 4];
                   data-gallery-index={imageIndex}
                   alt=""
                   draggable="false"
-                  style={slotIndex === 7 ? 'opacity:0' : undefined}
                 />
               </div>
             ))}
@@ -52,18 +51,23 @@ const initialSlots = [0, 1, 2, 3, 5, 6, 7, 4];
             <span aria-hidden="true">›</span>
           </button>
         </div>
-        <div class="gallery-drag-cursor" data-gallery-cursor aria-hidden="true">
-          <svg viewBox="0 0 120 120" focusable="false">
-            <defs>
-              <path id="gallery-drag-cursor-path" d="M60 8a52 52 0 1 1 0 104 52 52 0 1 1 0-104" />
-            </defs>
-            <text>
-              <textPath href="#gallery-drag-cursor-path" startOffset="7%">DRAG - DRAG - DRAG - DRAG -</textPath>
-            </text>
-          </svg>
-          <span></span>
-        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Keep the fixed cursor outside the revealed gallery subtree. A transformed
+     ancestor would otherwise turn fixed positioning into section positioning. -->
+<div class="gallery-drag-cursor" data-gallery-cursor aria-hidden="true">
+  <div class="gallery-drag-cursor-shell">
+    <svg viewBox="0 0 100 100" overflow="visible" focusable="false">
+      <defs>
+        <path id="gallery-drag-cursor-path" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50" />
+      </defs>
+      <text>
+        <textPath href="#gallery-drag-cursor-path" startOffset="7" dominant-baseline="hanging">DRAG - DRAG - DRAG - DRAG - </textPath>
+      </text>
+    </svg>
+    <span></span>
+  </div>
+</div>

@@ -399,7 +399,7 @@ const galleryTrack = galleryWindow?.querySelector('.gallery-track');
 const gallerySlots = galleryWindow ? [...galleryWindow.querySelectorAll('[data-gallery-slot]')] : [];
 const galleryPrevious = galleryWindow?.querySelector('[data-gallery-prev]');
 const galleryNext = galleryWindow?.querySelector('[data-gallery-next]');
-const galleryCursor = galleryWindow?.querySelector('[data-gallery-cursor]');
+const galleryCursor = document.querySelector('[data-gallery-cursor]');
 
 if (gallerySection && galleryWindow && galleryTrack && gallerySlots.length >= 7) {
   const imagePool = JSON.parse(gallerySection.getAttribute('data-gallery-images') ?? '[]');
@@ -473,13 +473,14 @@ if (gallerySection && galleryWindow && galleryTrack && gallerySlots.length >= 7)
     if (galleryCursor) {
       galleryCursor.style.left = `${event.clientX}px`;
       galleryCursor.style.top = `${event.clientY}px`;
+      if (event.pointerType !== 'touch') galleryCursor.classList.add('is-visible');
     }
     if (pointerId !== event.pointerId) return;
     pointerOffset = event.clientX - pointerStartX;
     const vertical = event.clientY - pointerStartY;
     pointerMoved = Math.abs(pointerOffset) > 6;
     if (Math.abs(pointerOffset) <= Math.abs(vertical)) return;
-    layoutGallery(0, pointerOffset, true);
+    layoutGallery(0, pointerOffset * 0.1, true);
   });
 
   galleryWindow.addEventListener('pointerup', (event) => {
@@ -490,7 +491,7 @@ if (gallerySection && galleryWindow && galleryTrack && gallerySlots.length >= 7)
     galleryWindow.releasePointerCapture?.(event.pointerId);
     galleryWindow.classList.remove('is-dragging');
     galleryTrack.classList.remove('is-dragging-track');
-    if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY)) {
+    if (Math.abs(deltaX) <= 100 || Math.abs(deltaX) < Math.abs(deltaY)) {
       layoutGallery();
       return;
     }
@@ -526,7 +527,10 @@ if (gallerySection && galleryWindow && galleryTrack && gallerySlots.length >= 7)
     }
   });
 
-  layoutGallery();
+  // The source renders its initial seven-card composition without tweening in
+  // from the authored fallback sizes.
+  layoutGallery(0, 0, true);
+  requestAnimationFrame(() => galleryTrack.classList.remove('is-dragging-track'));
   window.addEventListener('resize', () => layoutGallery());
 }
 
