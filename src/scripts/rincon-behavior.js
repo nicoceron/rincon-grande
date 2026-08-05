@@ -3,10 +3,11 @@ import Lenis from 'lenis';
 const nav = document.querySelector('[data-site-nav]');
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const navPanel = document.querySelector('#site-menu');
-const menuContent = navPanel?.querySelector('[data-menu-content]');
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = motionPreference.matches;
 const heroMedia = document.querySelector('.hero-video-container');
+const hasIncomingNavTransition = document.documentElement.dataset.navTransition === 'open';
+let menuCloseTimer;
 
 function syncResponsiveLinks() {
   // Resolve captured internal destinations to local Astro routes at every
@@ -356,25 +357,11 @@ if (logoTrack) {
   });
 }
 
-function setMenu(open) {
+function setMenu(open, { focusToggle = true } = {}) {
   if (!nav || !menuToggle || !navPanel) return;
-  if (open && menuContent && !menuContent.hasChildNodes()) {
-    const menuPrefix = window.location.pathname === '/' ? './' : '/';
-    menuContent.innerHTML = `
-      <p class="eyebrow">Navigation</p>
-      <div class="nav-panel-links">
-        <a data-nav-link href="${menuPrefix}dining">Dining</a>
-        <a data-nav-link href="${menuPrefix}about">The Estate</a>
-        <a data-nav-link href="${menuPrefix}rooms">The Lodge</a>
-        <a data-nav-link href="${menuPrefix}wellness">Fishing</a>
-        <a data-nav-link href="${menuPrefix}experiences/winter">Hunting</a>
-        <a data-nav-link href="${menuPrefix}contact">Contact</a>
-      </div>
-    `;
-    menuContent.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => setMenu(false));
-    });
-  }
+
+  window.clearTimeout(menuCloseTimer);
+  nav.classList.toggle('is-closing', !open && !prefersReducedMotion);
   nav.classList.toggle('is-open', open);
   document.body.classList.toggle('menu-open', open);
   smoothScroll.setStopped(open);
@@ -383,7 +370,11 @@ function setMenu(open) {
   menuToggle.setAttribute('data-framer-name', open ? 'Close' : 'Hamburger');
   navPanel.setAttribute('aria-hidden', String(!open));
   navPanel.inert = !open;
-  menuToggle.focus({ preventScroll: true });
+  if (focusToggle) menuToggle.focus({ preventScroll: true });
+
+  if (!open && !prefersReducedMotion) {
+    menuCloseTimer = window.setTimeout(() => nav.classList.remove('is-closing'), 1000);
+  }
 }
 
 if (navPanel) navPanel.inert = true;
@@ -391,6 +382,62 @@ if (navPanel) navPanel.inert = true;
 menuToggle?.addEventListener('click', () => {
   setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
 });
+
+nav?.addEventListener('click', (event) => {
+  if (
+    !nav.classList.contains('is-open')
+    || event.defaultPrevented
+    || event.button !== 0
+    || event.metaKey
+    || event.ctrlKey
+    || event.shiftKey
+    || event.altKey
+  ) return;
+
+  const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+  if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+
+  const destination = new URL(link.href, window.location.href);
+  if (destination.origin !== window.location.origin) return;
+
+  const current = new URL(window.location.href);
+  if (`${destination.pathname}${destination.search}` === `${current.pathname}${current.search}`) {
+    event.preventDefault();
+    setMenu(false);
+    return;
+  }
+
+  if (!prefersReducedMotion) {
+    try {
+      sessionStorage.setItem('rincon-nav-transition', 'open');
+    } catch {}
+  }
+});
+
+if (hasIncomingNavTransition && nav && menuToggle && navPanel) {
+  document.body.classList.add('menu-open');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  menuToggle.setAttribute('aria-label', 'Close navigation');
+  menuToggle.setAttribute('data-framer-name', 'Close');
+  navPanel.setAttribute('aria-hidden', 'false');
+  navPanel.inert = false;
+  smoothScroll.setStopped(true);
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      nav.classList.add('is-closing');
+      document.documentElement.removeAttribute('data-nav-transition');
+      document.body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation');
+      menuToggle.setAttribute('data-framer-name', 'Hamburger');
+      navPanel.setAttribute('aria-hidden', 'true');
+      navPanel.inert = true;
+      smoothScroll.setStopped(false);
+      menuCloseTimer = window.setTimeout(() => nav.classList.remove('is-closing'), 1000);
+    });
+  });
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') {

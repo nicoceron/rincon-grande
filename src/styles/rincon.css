@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Aujournuit';
   src: url('/assets/fonts/95cWY6HmOBgWIRt2c9cUACfWTo.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
   font-weight: 100 1000;
 }
 
@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Geist';
   src: url('/assets/fonts/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
-  font-display: swap;
+  font-display: block;
   font-weight: 100 900;
 }
 
@@ -32,6 +32,54 @@
   --heading-font: 'Aujournuit', Georgia, serif;
   --label-font: 'Geist', Arial, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --nav-layout-ease: cubic-bezier(0.19, 0.88, 0.39, 0.99);
+  --nav-content-ease: cubic-bezier(0.08, 0.78, 0.56, 1);
+  --nav-icon-ease: cubic-bezier(0.06, 0.76, 0.43, 0.99);
+  --nav-link-ease: cubic-bezier(0.16, 1, 0.39, 1.01);
+  /* Framer Motion spring: damping 60, mass 1, stiffness 500. */
+  --nav-shell-spring: linear(
+    0 0%,
+    0.098125 2.5%,
+    0.262358 5%,
+    0.415421 7.5%,
+    0.541835 10%,
+    0.642352 12.5%,
+    0.721226 15%,
+    0.782822 17.5%,
+    0.830842 20%,
+    0.868254 22.5%,
+    0.897395 25%,
+    0.92009 27.5%,
+    0.937766 30%,
+    0.951532 32.5%,
+    0.962253 35%,
+    0.970603 37.5%,
+    0.977105 40%,
+    0.98217 42.5%,
+    0.986114 45%,
+    0.989185 47.5%,
+    0.991578 50%,
+    0.993441 52.5%,
+    0.994892 55%,
+    0.996022 57.5%,
+    0.996902 60%,
+    0.997587 62.5%,
+    0.998121 65%,
+    0.998536 67.5%,
+    0.99886 70%,
+    0.999112 72.5%,
+    0.999309 75%,
+    0.999462 77.5%,
+    0.999581 80%,
+    0.999673 82.5%,
+    0.999746 85%,
+    0.999802 87.5%,
+    0.999846 90%,
+    0.99988 92.5%,
+    0.999906 95%,
+    0.999927 97.5%,
+    0.999943 100%
+  );
   --rincon-mark-scale: 1.5;
 }
 
@@ -61,6 +109,10 @@ body {
 }
 
 body.menu-open {
+  overflow: hidden;
+}
+
+html[data-nav-transition='open'] body {
   overflow: hidden;
 }
 
@@ -264,6 +316,8 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
+  height: auto;
+  overflow: visible;
   color: var(--white);
 }
 
@@ -319,7 +373,7 @@ h2 {
   width: 28px;
   height: 1px;
   background: currentColor;
-  transition: transform 300ms var(--ease), top 300ms var(--ease);
+  transition: transform 300ms var(--nav-icon-ease), top 300ms var(--nav-icon-ease);
 }
 
 .menu-icon i:first-child {
@@ -343,7 +397,7 @@ h2 {
   width: calc(87px * var(--rincon-mark-scale));
   height: calc(32px * var(--rincon-mark-scale));
   object-fit: contain;
-  transition: opacity 220ms var(--ease);
+  transition: none;
 }
 
 .brand-mark-dark {
@@ -367,16 +421,30 @@ h2 {
   width: 100%;
   height: min(100vh, 900px);
   overflow: hidden;
-  background: var(--cream);
+  background: transparent;
   color: var(--muted-ink);
-  opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transform: translateY(-101%);
-  transition: opacity 420ms var(--ease), transform 600ms var(--ease);
+  transition: visibility 0s linear 1000ms;
+}
+
+.nav-panel::before {
+  position: absolute;
+  z-index: 0;
+  top: -72px;
+  right: 0;
+  left: 0;
+  height: 72px;
+  background: var(--cream);
+  content: '';
+  transition:
+    top 1000ms var(--nav-layout-ease),
+    height 1000ms var(--nav-layout-ease);
 }
 
 .nav-panel-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   width: 280px;
   height: 100%;
@@ -385,6 +453,11 @@ h2 {
   align-items: center;
   justify-content: center;
   padding-top: 72px;
+  opacity: 0.001;
+  transform: translateY(42px);
+  transition:
+    opacity 700ms var(--nav-content-ease),
+    transform 700ms var(--nav-content-ease);
 }
 
 .nav-panel-links {
@@ -404,12 +477,11 @@ h2 {
   letter-spacing: -0.02em;
   line-height: 1.15;
   text-wrap: nowrap;
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 0.001;
+  transform: translateY(100px);
   transition:
-    color 180ms ease,
-    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 400ms var(--nav-content-ease),
+    transform 400ms var(--nav-content-ease),
     padding 400ms cubic-bezier(0.2, 0.74, 0.56, 1);
 }
 
@@ -421,15 +493,13 @@ h2 {
 .nav-panel-links a:nth-child(6) { order: 5; }
 
 .site-nav.is-open .nav-panel-links a {
-  animation: nav-link-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  opacity: 1;
-  transform: none;
+  animation: nav-link-enter 1500ms var(--nav-link-ease) 100ms both;
 }
 
 @keyframes nav-link-enter {
   from {
-    opacity: 0;
-    transform: translateY(18px);
+    opacity: 0.001;
+    transform: translateY(100px);
   }
   to {
     opacity: 1;
@@ -437,20 +507,11 @@ h2 {
   }
 }
 
-.site-nav.is-open .nav-panel-links a:nth-child(2) { transition-delay: 120ms; }
-.site-nav.is-open .nav-panel-links a:nth-child(3) { transition-delay: 160ms; }
-.site-nav.is-open .nav-panel-links a:nth-child(1) { transition-delay: 200ms; }
-.site-nav.is-open .nav-panel-links a:nth-child(4) { transition-delay: 240ms; }
-.site-nav.is-open .nav-panel-links a:nth-child(5) { transition-delay: 280ms; }
-.site-nav.is-open .nav-panel-links a:nth-child(6) { transition-delay: 320ms; }
-
 @media (hover: hover) and (pointer: fine) {
   .site-nav.is-open .nav-panel-links a:hover,
   .site-nav.is-open .nav-panel-links a:focus-visible {
     padding-left: 18px;
-    color: var(--ink);
     opacity: 0.65;
-    transform: none;
   }
 }
 
@@ -472,10 +533,29 @@ h2 {
 }
 
 .site-nav.is-open .nav-panel {
-  opacity: 1;
   pointer-events: auto;
   visibility: visible;
-  transform: translateY(0);
+  transition: visibility 0s linear;
+}
+
+.site-nav.is-open .nav-panel::before {
+  top: 0;
+  height: 100vh;
+}
+
+.site-nav.is-open .nav-panel-inner {
+  animation: nav-content-enter 700ms var(--nav-content-ease) 300ms both;
+}
+
+@keyframes nav-content-enter {
+  from {
+    opacity: 0.001;
+    transform: translateY(42px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .site-nav.is-open .brand-mark-light {
@@ -487,12 +567,75 @@ h2 {
 }
 
 .site-nav.is-open .menu-icon i:first-child {
-  top: 9px;
+  top: 8.5px;
   transform: rotate(45deg);
 }
 
 .site-nav.is-open .menu-icon i:last-child {
-  top: 9px;
+  top: 8.5px;
+  transform: rotate(-45deg);
+}
+
+/* Nav Open Wrap is conditionally unmounted in the Regent component when its
+   variant closes; only the cream shell's tween and spring keep running. */
+.site-nav.is-closing .nav-panel-inner {
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
+  animation: none;
+  transition: none;
+}
+
+/* A menu link changes the document underneath the open navbar in Framer. Keep
+   the same open variant for the first painted frame of the destination, then
+   let the exact reverse timings above reveal the new page. */
+html[data-nav-transition='open'] .site-nav {
+  color: #000;
+}
+
+html[data-nav-transition='open'] .landing-nav {
+  height: 100vh;
+}
+
+html[data-nav-transition='open'] .nav-container {
+  height: 100vh;
+}
+
+html[data-nav-transition='open'] .nav-panel {
+  pointer-events: auto;
+  visibility: visible;
+  transition: none;
+}
+
+html[data-nav-transition='open'] .nav-panel::before {
+  top: 0;
+  height: 100vh;
+  transition: none;
+}
+
+html[data-nav-transition='open'] .nav-panel-inner,
+html[data-nav-transition='open'] .nav-panel-links a {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  transition: none;
+}
+
+html[data-nav-transition='open'] .brand-mark-light {
+  opacity: 0;
+}
+
+html[data-nav-transition='open'] .brand-mark-dark {
+  opacity: 1;
+}
+
+html[data-nav-transition='open'] .menu-icon i:first-child {
+  top: 8.5px;
+  transform: rotate(45deg);
+}
+
+html[data-nav-transition='open'] .menu-icon i:last-child {
+  top: 8.5px;
   transform: rotate(-45deg);
 }
 
@@ -1944,11 +2087,13 @@ h2 {
   bottom: 0;
   left: 0;
   height: 1px;
-  background: rgba(33, 33, 33, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   opacity: 0;
   transform: none;
   transform-origin: top center;
-  transition: opacity 240ms ease, transform 240ms ease;
+  transition:
+    opacity 1000ms var(--nav-shell-spring),
+    background-color 1000ms var(--nav-shell-spring);
 }
 
 .site-nav.is-scrolled .nav-bottom-border {
@@ -5012,15 +5157,20 @@ h2 {
    export. The Rincon wordmark remains intentionally brand-specific. */
 .landing-nav {
   display: flex;
+  height: 72px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  transition: height 1000ms var(--nav-shell-spring);
 }
 
 .nav-container {
   width: 100%;
-  height: auto;
+  height: 72px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  transition: height 1000ms var(--nav-layout-ease);
 }
 
 .desktop-nav,
@@ -5135,7 +5285,7 @@ h2 {
 }
 
 .nav-bottom-border {
-  background: rgba(33, 33, 33, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   opacity: 0;
   transform: none;
 }
@@ -5151,8 +5301,8 @@ h2 {
   height: 100vh;
 }
 
-.site-nav.is-open,
-.site-nav.is-open .landing-nav {
+.site-nav.is-open .landing-nav,
+.site-nav.is-open .nav-container {
   height: 100vh;
 }
 
@@ -5174,7 +5324,7 @@ h2 {
 @media (min-width: 810px) and (max-width: 1199.98px),
   (max-width: 809.98px) {
   .nav-bottom-border {
-    background: rgba(33, 33, 33, 0.08);
+    background: rgba(0, 0, 0, 0.06);
   }
 }
 

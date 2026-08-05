@@ -622,6 +622,10 @@
   height: 453px;
 }
 
+.source-room-card > .route-media-frame {
+  height: 453px;
+}
+
 .source-room-card-meta {
   display: flex;
   align-items: center;

@@ -4,6 +4,14 @@ import InlineSvg from './InlineSvg.astro';
 const isHome = Astro.url.pathname === '/';
 const homeHref = '/';
 const mobileHomeHref = isHome ? './' : '/';
+const navigationLinks = [
+  { href: '/dining', label: 'Dining' },
+  { href: '/about', label: 'The Estate' },
+  { href: '/rooms', label: 'The Lodge' },
+  { href: '/wellness', label: 'Fishing' },
+  { href: '/experiences/winter', label: 'Hunting' },
+  { href: '/contact', label: 'Contact' },
+];
 ---
 
 <header class="site-nav" data-site-nav>
@@ -56,7 +64,14 @@ const mobileHomeHref = isHome ? './' : '/';
       </nav>
 
       <div class="nav-panel" id="site-menu" aria-hidden="true">
-        <div class="nav-panel-inner" data-menu-content></div>
+        <div class="nav-panel-inner" data-menu-content>
+          <p class="eyebrow">Navigation</p>
+          <div class="nav-panel-links">
+            {navigationLinks.map(({ href, label }) => (
+              <a data-nav-link href={href}>{label}</a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </nav>
