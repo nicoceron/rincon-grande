@@ -15,14 +15,14 @@ const chef = page.sections.find((section) => section.id === 'chef');
 const bar = page.sections.find((section) => section.id === 'bar');
 const experiences = page.sections.find((section) => section.id === 'experiences');
 const galleryImages = [
-  ['/assets/rincon/lodge-living.webp', 'Lodge interior prepared for gathering', 'wide'],
-  ['/assets/rincon/campfire.webp', 'Fire burning at Rincón Grande', 'short'],
-  ['/assets/rincon/lodge-fireplace.webp', 'Lodge wood-burning fireplace', 'tall'],
-  ['/assets/rincon/sunset-field.webp', 'Patagonian landscape at the end of the day', 'short'],
-  ['/assets/rincon/lodge-garden.webp', 'Lodge among gardens and trees', 'medium'],
-  ['/assets/rincon/hero-limay.webp', 'The Limay River beside the estate', 'short'],
-  ['/assets/rincon/lodge-exterior.webp', 'Rincón Grande lodge exterior', 'tall'],
-  ['/assets/rincon/landscape-limay.webp', 'Open landscape along the Limay', 'medium'],
+  ['/assets/rincon/optimized/lodge-living.webp', 'Lodge interior prepared for gathering', 'wide'],
+  ['/assets/rincon/optimized/campfire.webp', 'Fire burning at Rincón Grande', 'short'],
+  ['/assets/rincon/optimized/lodge-fireplace.webp', 'Lodge wood-burning fireplace', 'tall'],
+  ['/assets/rincon/optimized/sunset-field.webp', 'Patagonian landscape at the end of the day', 'short'],
+  ['/assets/rincon/optimized/lodge-garden.webp', 'Lodge among gardens and trees', 'medium'],
+  ['/assets/rincon/optimized/hero-limay.webp', 'The Limay River beside the estate', 'short'],
+  ['/assets/rincon/optimized/lodge-exterior.webp', 'Rincón Grande lodge exterior', 'tall'],
+  ['/assets/rincon/optimized/landscape-limay.webp', 'Open landscape along the Limay', 'medium'],
 ];
 ---
 
@@ -51,7 +51,7 @@ const galleryImages = [
 </section>
 
 <section class="source-dining-chef-banner" aria-hidden="true">
-  <RouteMedia src="/assets/rincon/campfire.webp" type="image" alt="" loading="lazy" />
+  <RouteMedia src="/assets/rincon/optimized/campfire.webp" type="image" alt="" loading="lazy" />
 </section>
 
 <section class="source-dining-chef" aria-labelledby="dining-chef-title">
@@ -61,14 +61,14 @@ const galleryImages = [
     <p>{chef?.body?.[0]}</p>
   </div>
   <div class="source-dining-chef-media">
-    <RouteMedia src="/assets/rincon/lodge-living.webp" type="image" alt="Lodge table and living room" loading="lazy" />
-    <RouteMedia src="/assets/rincon/lodge-fireplace.webp" type="image" alt="Lodge wood-burning fireplace" loading="lazy" />
+    <RouteMedia src="/assets/rincon/optimized/lodge-living.webp" type="image" alt="Lodge table and living room" loading="lazy" />
+    <RouteMedia src="/assets/rincon/optimized/lodge-fireplace.webp" type="image" alt="Lodge wood-burning fireplace" loading="lazy" />
   </div>
 </section>
 
 <section class="source-dining-bar" aria-labelledby="dining-bar-title">
   <div class="source-dining-bar-media">
-    <RouteMedia src="/assets/rincon/sunset-field.webp" type="image" alt="Patagonian landscape at sunset" loading="lazy" />
+    <RouteMedia src="/assets/rincon/optimized/sunset-field.webp" type="image" alt="Patagonian landscape at sunset" loading="lazy" />
   </div>
   <div class="source-dining-bar-copy">
     <p class="eyebrow">{bar?.eyebrow}</p>
@@ -94,7 +94,7 @@ const galleryImages = [
 
 <section class="source-prefooter source-prefooter--dining" aria-labelledby="dining-cta-title">
   <div class="source-prefooter-media" aria-hidden="true">
-    <RouteMedia src="/assets/rincon/lodge-living.webp" type="image" alt="" loading="lazy" />
+    <RouteMedia src="/assets/rincon/optimized/lodge-living.webp" type="image" alt="" loading="lazy" />
   </div>
   <div class="source-prefooter-shade" aria-hidden="true"></div>
   <div class="source-prefooter-content">

@@ -32,6 +32,7 @@
   --heading-font: 'Aujournuit', Georgia, serif;
   --label-font: 'Geist', Arial, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --rincon-mark-scale: 1.5;
 }
 
 *,
@@ -332,15 +333,15 @@ h2 {
 .nav-logo {
   position: relative;
   display: flex;
-  width: 87px;
-  height: 18px;
+  width: calc(87px * var(--rincon-mark-scale));
+  height: calc(18px * var(--rincon-mark-scale));
   align-items: center;
   justify-self: center;
 }
 
 .brand-mark {
-  width: 87px;
-  height: 32px;
+  width: calc(87px * var(--rincon-mark-scale));
+  height: calc(32px * var(--rincon-mark-scale));
   object-fit: contain;
   transition: opacity 220ms var(--ease);
 }
@@ -349,6 +350,7 @@ h2 {
   position: absolute;
   left: 0;
   opacity: 0;
+  filter: brightness(0);
 }
 
 .nav-book {
@@ -563,19 +565,19 @@ h2 {
 }
 
 .hero-wordmark {
-  width: 233px;
-  height: 84px;
+  width: calc(233px * var(--rincon-mark-scale));
+  height: calc(84px * var(--rincon-mark-scale));
   object-fit: contain;
 }
 
 .hero-estate-mark {
   display: flex;
-  width: 187.117px;
-  height: 75px;
-  margin-top: 32px;
+  width: calc(187.117px * var(--rincon-mark-scale));
+  height: calc(75px * var(--rincon-mark-scale));
+  margin-top: calc(32px * var(--rincon-mark-scale));
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: calc(24px * var(--rincon-mark-scale));
   color: var(--white);
 }
 
@@ -599,14 +601,14 @@ h2 {
 
 .hero-estate-crest {
   display: flex;
-  width: 52px;
-  height: 75px;
+  width: calc(52px * var(--rincon-mark-scale));
+  height: calc(75px * var(--rincon-mark-scale));
   flex: 0 0 auto;
 }
 
 .hero-estate-mark svg {
-  width: 52px;
-  height: 75px;
+  width: calc(52px * var(--rincon-mark-scale));
+  height: calc(75px * var(--rincon-mark-scale));
 }
 
 .hero-bottom {
@@ -783,8 +785,8 @@ h2 {
   z-index: 1;
   top: 28px;
   left: 5%;
-  width: 140px !important;
-  height: 140px !important;
+  width: calc(140px * var(--rincon-mark-scale)) !important;
+  height: calc(140px * var(--rincon-mark-scale)) !important;
   object-fit: contain !important;
 }
 
@@ -1154,8 +1156,8 @@ h2 {
 
 .footer-logo {
   display: flex;
-  width: 167px;
-  height: 55px;
+  width: calc(167px * var(--rincon-mark-scale));
+  height: calc(55px * var(--rincon-mark-scale));
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -1163,13 +1165,13 @@ h2 {
 
 .footer-logo-mark,
 .footer-logo img {
-  width: 167px;
+  width: calc(167px * var(--rincon-mark-scale));
   height: auto;
 }
 
 .footer-logo-mark {
   display: block;
-  height: 55px;
+  height: calc(55px * var(--rincon-mark-scale));
   flex: 0 0 auto;
 }
 
@@ -1546,11 +1548,11 @@ h2 {
   }
 
   .nav-logo {
-    height: 32px;
+    height: calc(32px * var(--rincon-mark-scale));
   }
 
   .brand-mark {
-    height: 32px;
+    height: calc(32px * var(--rincon-mark-scale));
   }
 
   .nav-panel {
@@ -1590,12 +1592,12 @@ h2 {
   }
 
   .hero-wordmark {
-    width: 196px;
-    height: 71px;
+    width: calc(196px * var(--rincon-mark-scale));
+    height: calc(71px * var(--rincon-mark-scale));
   }
 
   .hero-estate-mark {
-    margin-top: 48px;
+    margin-top: calc(48px * var(--rincon-mark-scale));
   }
 
   .hero-bottom {
@@ -1826,13 +1828,13 @@ h2 {
   }
 
   .footer-logo {
-    width: 131px;
-    height: 43px;
+    width: calc(131px * var(--rincon-mark-scale));
+    height: calc(43px * var(--rincon-mark-scale));
   }
 
   .footer-logo-mark,
   .footer-logo img {
-    width: 131px;
+    width: calc(131px * var(--rincon-mark-scale));
   }
 
   .footer-columns {
@@ -2151,11 +2153,11 @@ h2 {
 .about-stamp-wrap {
   position: absolute;
   z-index: 3;
-  top: -72px;
-  left: -72px;
+  top: calc(-72px * var(--rincon-mark-scale));
+  left: calc(-72px * var(--rincon-mark-scale));
   display: block;
-  width: 140px;
-  height: 140px;
+  width: calc(140px * var(--rincon-mark-scale));
+  height: calc(140px * var(--rincon-mark-scale));
   transform-origin: 50% 50%;
   will-change: transform;
 }
@@ -2163,8 +2165,8 @@ h2 {
 .about-stamp {
   position: static;
   display: block;
-  width: 140px !important;
-  height: 140px !important;
+  width: calc(140px * var(--rincon-mark-scale)) !important;
+  height: calc(140px * var(--rincon-mark-scale)) !important;
 }
 
 .rooms-section {
@@ -2955,8 +2957,8 @@ h2 {
 .brand-mark-variant {
   position: relative;
   display: block;
-  width: 87px;
-  height: 18px;
+  width: calc(87px * var(--rincon-mark-scale));
+  height: calc(18px * var(--rincon-mark-scale));
 }
 
 .brand-mark-variant + .brand-mark-variant {
@@ -3074,14 +3076,14 @@ h2 {
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: calc(32px * var(--rincon-mark-scale));
 }
 
 .hero-headline-wrap {
   position: relative;
   display: flex;
   width: 700px;
-  height: 84px;
+  height: calc(84px * var(--rincon-mark-scale));
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -3130,12 +3132,14 @@ h2 {
   }
 
   .hero-top {
-    gap: 48px;
+    gap: calc(48px * var(--rincon-mark-scale));
   }
 
   .hero-headline-wrap {
-    width: 100%;
-    height: 71px;
+    width: calc(196px * var(--rincon-mark-scale));
+    max-width: none;
+    height: calc(71px * var(--rincon-mark-scale));
+    flex-shrink: 0;
   }
 
   .hero-bottom {
@@ -3673,13 +3677,13 @@ h2 {
   }
 
   .footer-logo {
-    width: 154px;
-    height: 51px;
+    width: calc(154px * var(--rincon-mark-scale));
+    height: calc(51px * var(--rincon-mark-scale));
   }
 
   .footer-logo-mark,
   .footer-logo img {
-    width: 154px;
+    width: calc(154px * var(--rincon-mark-scale));
   }
 
   .footer-columns {
@@ -3891,8 +3895,8 @@ h2 {
 }
 
 .footer-logo-mark {
-  width: 167px;
-  height: 55px;
+  width: calc(167px * var(--rincon-mark-scale));
+  height: calc(55px * var(--rincon-mark-scale));
 }
 
 .footer-link-list a p,
@@ -4018,15 +4022,15 @@ h2 {
 
 @media (min-width: 810px) and (max-width: 1199.98px) {
   .footer-logo-mark {
-    width: 154px;
-    height: 51px;
+    width: calc(154px * var(--rincon-mark-scale));
+    height: calc(51px * var(--rincon-mark-scale));
   }
 }
 
 @media (max-width: 809.98px) {
   .footer-logo-mark {
-    width: 131px;
-    height: 43px;
+    width: calc(131px * var(--rincon-mark-scale));
+    height: calc(43px * var(--rincon-mark-scale));
   }
 
   .footer-support .footer-link-container {
@@ -4976,5 +4980,32 @@ h2 {
   .source-error-content,
   .source-error-content h1 span {
     animation: none;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .nav-main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    flex: 0 0 48px;
+  }
+
+  .nav-logo-wrap {
+    position: absolute;
+    left: calc(50% - 27px);
+    width: calc(87px * var(--rincon-mark-scale));
+    flex: 0 0 calc(87px * var(--rincon-mark-scale));
+    transform: translateX(-50%);
+  }
+
+  .nav-item {
+    flex: 0 0 102px;
+  }
+
+  .nav-logo {
+    max-width: 100%;
   }
 }

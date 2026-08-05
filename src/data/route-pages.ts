@@ -76,10 +76,10 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'An authentic corner of Patagonia',
     intro: 'Beside the Limay River, in Nahuel Huapi National Park, an intimate estate for experiencing the land.',
     hero: image(
-      '/assets/rincon/hero-lodge.webp',
+      '/assets/rincon/optimized/hero-lodge.webp',
       'Rincón Grande lodge among Patagonian trees',
       undefined,
-      ['/assets/rincon/lodge-river.webp', '/assets/rincon/lodge-exterior.webp'],
+      ['/assets/rincon/optimized/lodge-river.webp', '/assets/rincon/optimized/lodge-exterior.webp'],
     ),
     sections: [
       {
@@ -94,22 +94,22 @@ export const routePages: Record<string, RoutePageData> = {
           {
             title: 'Location',
             body: 'Nahuel Huapi National Park, Neuquén: a corner opening onto the Limay River and the Patagonian steppe.',
-            image: image('/assets/rincon/lodge-aerial.webp', 'Aerial view of the Limay River and Rincón Grande surroundings'),
+            image: image('/assets/rincon/optimized/lodge-aerial.webp', 'Aerial view of the Limay River and Rincón Grande surroundings'),
           },
           {
             title: 'The Lodge',
             body: 'Cypress and stone architecture, a glass-walled living room above the river, and life gathered around the fire.',
-            image: image('/assets/rincon/lodge-living.webp', 'Rincón Grande living room overlooking the landscape'),
+            image: image('/assets/rincon/optimized/lodge-living.webp', 'Rincón Grande living room overlooking the landscape'),
           },
           {
             title: 'The Team',
             body: 'Attentive service and close guiding: the staff is part of the immersion in the land.',
-            image: image('/assets/rincon/fishing-guide.webp', 'Rincón Grande guide beside the river'),
+            image: image('/assets/rincon/optimized/fishing-guide.webp', 'Rincón Grande guide beside the river'),
           },
           {
             title: 'Conservation',
             body: 'A light touch and a custodial approach to the landscape, woods, and river.',
-            image: image('/assets/rincon/landscape-limay.webp', 'Limay River landscape in Patagonia'),
+            image: image('/assets/rincon/optimized/landscape-limay.webp', 'Limay River landscape in Patagonia'),
           },
         ],
       },
@@ -121,7 +121,7 @@ export const routePages: Record<string, RoutePageData> = {
           'Cypress wood, stone, and the wood-burning fireplace create a warm home integrated into its surroundings. Every space is designed to look outward and return to the heart of the fire.',
           'The lodge welcomes small groups and keeps a personal scale: the stay feels close, quiet, and deeply Patagonian.',
         ],
-        media: image('/assets/rincon/lodge-fireplace.webp', 'Wood-burning fireplace and lodge materials'),
+        media: image('/assets/rincon/optimized/lodge-fireplace.webp', 'Wood-burning fireplace and lodge materials'),
         layout: 'split',
       },
       {
@@ -132,7 +132,7 @@ export const routePages: Record<string, RoutePageData> = {
           'Catch-and-release fishing, care for the river, and a light touch guide our relationship with the land. Nature is not the backdrop to the experience: it is the center.',
           'Silence, fire, and landscape come together in a form of hospitality that leaves room to observe, listen, and return changed.',
         ],
-        media: image('/assets/rincon/hero-limay.webp', 'The Limay River at sunset'),
+        media: image('/assets/rincon/optimized/hero-limay.webp', 'The Limay River at sunset'),
         layout: 'split',
         tone: 'stone',
       },
@@ -151,10 +151,10 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'An intimate refuge beside the river',
     intro: 'Three en-suite suites and an additional bedroom accommodate up to eight guests, surrounded by cypress, stone, and landscape.',
     hero: image(
-      '/assets/rincon/lodge-living.webp',
+      '/assets/rincon/optimized/lodge-living.webp',
       'Lodge interior overlooking the landscape',
       undefined,
-      ['/assets/rincon/room-bedroom.webp', '/assets/rincon/lodge-fireplace.webp'],
+      ['/assets/rincon/optimized/room-bedroom.webp', '/assets/rincon/optimized/lodge-fireplace.webp'],
     ),
     sections: [
       {
@@ -166,49 +166,49 @@ export const routePages: Record<string, RoutePageData> = {
           {
             title: 'Cypress Suite',
             body: 'An intimate suite with an en-suite bathroom and natural materials.',
-            image: image('/assets/rincon/room-bedroom.webp', 'Rincón Grande suite with cypress wood'),
+            image: image('/assets/rincon/optimized/room-bedroom.webp', 'Rincón Grande suite with cypress wood'),
             meta: [{ label: 'Suite', value: '2 guests' }],
           },
           {
             title: 'Stone Suite',
             body: 'Calm, natural light, and a direct relationship with the landscape.',
-            image: image('/assets/rincon/lodge-fireplace.webp', 'Warm lodge interior'),
+            image: image('/assets/rincon/optimized/lodge-fireplace.webp', 'Warm lodge interior'),
             meta: [{ label: 'Suite', value: '2 guests' }],
           },
           {
             title: 'Limay Suite',
             body: 'Rest beside the river, with Patagonia always present.',
-            image: image('/assets/rincon/lodge-river.webp', 'Limay River in front of the lodge'),
+            image: image('/assets/rincon/optimized/lodge-river.webp', 'Limay River in front of the lodge'),
             meta: [{ label: 'Suite', value: '2 guests' }],
           },
           {
             title: 'Additional Bedroom',
             body: "An additional bedroom to complete your group's stay.",
-            image: image('/assets/rincon/lodge-exterior.webp', 'Rincón Grande lodge among trees'),
+            image: image('/assets/rincon/optimized/lodge-exterior.webp', 'Rincón Grande lodge among trees'),
             meta: [{ label: 'Bedroom', value: '2 guests' }],
           },
           {
             title: 'Glass-Walled Living Room',
             body: 'The glass-walled common space brings the lodge together around the landscape.',
-            image: image('/assets/rincon/lodge-living.webp', 'Glass-walled lodge living room'),
+            image: image('/assets/rincon/optimized/lodge-living.webp', 'Glass-walled lodge living room'),
             meta: [{ label: 'Common space', value: '8 guests' }],
           },
           {
             title: 'Wood-Burning Fireplace',
             body: 'Shared life unfolds around the fire.',
-            image: image('/assets/rincon/lodge-fireplace.webp', 'Lodge wood-burning fireplace'),
+            image: image('/assets/rincon/optimized/lodge-fireplace.webp', 'Lodge wood-burning fireplace'),
             meta: [{ label: 'Common space', value: 'Lodge' }],
           },
           {
             title: 'Cypress and Stone',
             body: 'Warm architecture, integrated into the surroundings.',
-            image: image('/assets/rincon/lodge-garden.webp', 'Lodge exterior in the Patagonian landscape'),
+            image: image('/assets/rincon/optimized/lodge-garden.webp', 'Lodge exterior in the Patagonian landscape'),
             meta: [{ label: 'Materials', value: 'Lodge' }],
           },
           {
             title: 'Exclusive Lodge',
             body: 'The entire lodge for your group, accommodating up to eight guests.',
-            image: image('/assets/rincon/lodge-aerial.webp', 'Aerial view of the lodge and river'),
+            image: image('/assets/rincon/optimized/lodge-aerial.webp', 'Aerial view of the lodge and river'),
             meta: [{ label: 'Exclusive use', value: 'Up to 8 guests' }],
           },
         ],
@@ -220,7 +220,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'Three suites, an additional bedroom, and shared spaces for enjoying the landscape without hurry. Ask about an exclusive lodge stay.',
         ],
-        media: image('/assets/rincon/lodge-exterior.webp', 'The complete Rincón Grande lodge'),
+        media: image('/assets/rincon/optimized/lodge-exterior.webp', 'The complete Rincón Grande lodge'),
         layout: 'split',
         tone: 'stone',
       },
@@ -253,21 +253,21 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'Flavors of Patagonia',
     intro: 'Gourmet cuisine, regional wines, and meals designed to accompany every program.',
     hero: image(
-      '/assets/rincon/lodge-living.webp',
+      '/assets/rincon/optimized/lodge-living.webp',
       'Rincón Grande lodge table and living room',
       undefined,
-      ['/assets/rincon/campfire.webp', '/assets/rincon/sunset-field.webp'],
+      ['/assets/rincon/optimized/campfire.webp', '/assets/rincon/optimized/sunset-field.webp'],
     ),
     gallery: {
       label: 'Rincón Grande dining gallery',
       items: [
-        image('/assets/rincon/lodge-living.webp', 'Lodge interior prepared for gathering'),
-        image('/assets/rincon/campfire.webp', 'Fire burning at Rincón Grande'),
-        image('/assets/rincon/lodge-fireplace.webp', 'Lodge wood-burning fireplace'),
-        image('/assets/rincon/sunset-field.webp', 'Patagonian landscape at the end of the day'),
-        image('/assets/rincon/lodge-garden.webp', 'Lodge among gardens and trees'),
-        image('/assets/rincon/hero-limay.webp', 'The Limay River beside the estate'),
-        image('/assets/rincon/lodge-exterior.webp', 'Rincón Grande lodge exterior'),
+        image('/assets/rincon/optimized/lodge-living.webp', 'Lodge interior prepared for gathering'),
+        image('/assets/rincon/optimized/campfire.webp', 'Fire burning at Rincón Grande'),
+        image('/assets/rincon/optimized/lodge-fireplace.webp', 'Lodge wood-burning fireplace'),
+        image('/assets/rincon/optimized/sunset-field.webp', 'Patagonian landscape at the end of the day'),
+        image('/assets/rincon/optimized/lodge-garden.webp', 'Lodge among gardens and trees'),
+        image('/assets/rincon/optimized/hero-limay.webp', 'The Limay River beside the estate'),
+        image('/assets/rincon/optimized/lodge-exterior.webp', 'Rincón Grande lodge exterior'),
       ],
     },
     sections: [
@@ -279,7 +279,7 @@ export const routePages: Record<string, RoutePageData> = {
           'The culinary offering follows the landscape: gourmet Patagonian cuisine, regional produce, and mountain wines to enjoy without hurry.',
           "Menus are adapted to each group's program, from a day in the field to a hunting or fishing stay.",
         ],
-        media: image('/assets/rincon/lodge-living.webp', 'Lodge gathering space'),
+        media: image('/assets/rincon/optimized/lodge-living.webp', 'Lodge gathering space'),
         layout: 'split',
       },
       {
@@ -289,7 +289,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'Every meal follows the rhythm of the estate: a warm table, carefully chosen ingredients, and time to talk, look at the landscape, and begin again.',
         ],
-        media: image('/assets/rincon/campfire.webp', 'Fire burning beside the lodge'),
+        media: image('/assets/rincon/optimized/campfire.webp', 'Fire burning beside the lodge'),
         layout: 'split',
         tone: 'stone',
       },
@@ -300,7 +300,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'The selection of regional wines accompanies Patagonian flavors and the moments that unfold beside the river after a day outdoors.',
         ],
-        media: image('/assets/rincon/sunset-field.webp', 'Patagonian landscape at sunset'),
+        media: image('/assets/rincon/optimized/sunset-field.webp', 'Patagonian landscape at sunset'),
         layout: 'split',
       },
       {
@@ -312,17 +312,17 @@ export const routePages: Record<string, RoutePageData> = {
           {
             title: 'Field Day',
             body: 'A tailored program that brings together outdoor activities and a shared lunch.',
-            image: image('/assets/rincon/campfire.webp', 'Field day beside the fire'),
+            image: image('/assets/rincon/optimized/campfire.webp', 'Field day beside the fire'),
           },
           {
             title: 'Hunting and Fishing',
             body: 'The kitchen accompanies the hunting, fishing, and Patagonian Double programs.',
-            image: image('/assets/rincon/hero-limay.webp', 'Limay River in Patagonia'),
+            image: image('/assets/rincon/optimized/hero-limay.webp', 'Limay River in Patagonia'),
           },
           {
             title: 'Private Gatherings',
             body: 'The estate as a setting for celebrations, meetings, and wine tastings.',
-            image: image('/assets/rincon/lodge-garden.webp', 'Lodge prepared for a gathering'),
+            image: image('/assets/rincon/optimized/lodge-garden.webp', 'Lodge prepared for a gathering'),
           },
         ],
       },
@@ -341,10 +341,10 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'Fly Fishing',
     intro: "3.5 km of private riverfront on the Limay River, one of Patagonia's most iconic fly-fishing rivers.",
     hero: image(
-      '/assets/rincon/angler-wide.webp',
+      '/assets/rincon/optimized/angler-wide.webp',
       'Fly fisherman on the Limay River',
       undefined,
-      ['/assets/rincon/angler-detail.webp', '/assets/rincon/fishing-guide.webp'],
+      ['/assets/rincon/optimized/angler-detail.webp', '/assets/rincon/optimized/fishing-guide.webp'],
     ),
     sections: [
       {
@@ -355,7 +355,7 @@ export const routePages: Record<string, RoutePageData> = {
           'Fishing never repeats itself: read the river day by day with your guide, attending to the water, light, and movement of each outing.',
           'The private Limay riverbank lets you find the rhythm of the place and experience catch-and-release fishing with care for the land.',
         ],
-        media: image('/assets/rincon/angler-wide.webp', 'Fly fishing on the Limay'),
+        media: image('/assets/rincon/optimized/angler-wide.webp', 'Fly fishing on the Limay'),
         layout: 'split',
       },
       {
@@ -365,7 +365,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'Three and a half kilometers of private riverbank open a close, guided fishing experience deeply connected to the landscape.',
         ],
-        media: image('/assets/rincon/angler-vertical.webp', 'Fly fisherman standing in the river'),
+        media: image('/assets/rincon/optimized/angler-vertical.webp', 'Fly fisherman standing in the river'),
         layout: 'split',
         tone: 'stone',
       },
@@ -377,7 +377,7 @@ export const routePages: Record<string, RoutePageData> = {
           'Each outing adapts to the river conditions and the experience level of the anglers. Your guide accompanies the day with knowledge, patience, and care.',
           'March through May is a special season for seeking migratory trout as part of a combined hunting program.',
         ],
-        media: image('/assets/rincon/angler-detail.webp', 'Fly-fishing detail on the Limay'),
+        media: image('/assets/rincon/optimized/angler-detail.webp', 'Fly-fishing detail on the Limay'),
         layout: 'split',
       },
       {
@@ -388,7 +388,7 @@ export const routePages: Record<string, RoutePageData> = {
           'Seven nights and six days combining fishing on the Limay River and hunting on the same estate, with no transfers between regions.',
           'A way to extend the journey and experience two rhythms of the land in one program.',
         ],
-        media: image('/assets/rincon/landscape-limay.webp', 'Open landscape along the Limay River'),
+        media: image('/assets/rincon/optimized/landscape-limay.webp', 'Open landscape along the Limay River'),
         layout: 'split',
         tone: 'dark',
       },
@@ -407,10 +407,10 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'Patagonia Hunting',
     intro: 'Fair chase across open steppe and Andean forest, with quiet tradition and responsible stewardship.',
     hero: image(
-      '/assets/rincon/hunting-wide.webp',
+      '/assets/rincon/optimized/hunting-wide.webp',
       'Hunters in the Patagonian steppe',
       undefined,
-      ['/assets/rincon/hunting-action.webp', '/assets/rincon/hunting-rocks.webp'],
+      ['/assets/rincon/optimized/hunting-action.webp', '/assets/rincon/optimized/hunting-rocks.webp'],
     ),
     secondaryLinks: [
       { label: 'Fishing', href: '/experiences/summer' },
@@ -430,7 +430,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'Free-range red stag, guided 1:1 or 2:1, with two nights at the Main Lodge and three at Hunter’s Camp. Season: March 1 to April 30.',
         ],
-        media: image('/assets/rincon/hunting-action.webp', 'Hunter in the Patagonian steppe'),
+        media: image('/assets/rincon/optimized/hunting-action.webp', 'Hunter in the Patagonian steppe'),
         layout: 'split',
       },
       {
@@ -440,7 +440,7 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'Seven nights and six days combining hunting and fishing on the same estate, with the Limay River and steppe as two sides of one landscape.',
         ],
-        media: image('/assets/rincon/hunting-action-alt.webp', 'Hunting day in open country'),
+        media: image('/assets/rincon/optimized/hunting-action-alt.webp', 'Hunting day in open country'),
         layout: 'split',
         tone: 'stone',
       },
@@ -451,17 +451,17 @@ export const routePages: Record<string, RoutePageData> = {
         body: [
           'The experience is built on respect for the surroundings, reading the landscape, and a quiet hunting tradition in open spaces.',
         ],
-        media: image('/assets/rincon/hunting-rocks.webp', 'Hunters among rocks and mountains'),
+        media: image('/assets/rincon/optimized/hunting-rocks.webp', 'Hunters among rocks and mountains'),
         layout: 'split',
       },
     ],
     gallery: {
       label: 'Rincón Grande hunting gallery',
       items: [
-        image('/assets/rincon/hunting-wide.webp', 'Hunters in the steppe'),
-        image('/assets/rincon/hunting-action.webp', 'Hunting day in Patagonia'),
-        image('/assets/rincon/antlers.webp', 'Antlers around the lodge'),
-        image('/assets/rincon/landscape-peak.webp', 'Patagonian mountains'),
+        image('/assets/rincon/optimized/hunting-wide.webp', 'Hunters in the steppe'),
+        image('/assets/rincon/optimized/hunting-action.webp', 'Hunting day in Patagonia'),
+        image('/assets/rincon/optimized/antlers.webp', 'Antlers around the lodge'),
+        image('/assets/rincon/optimized/landscape-peak.webp', 'Patagonian mountains'),
       ],
     },
     cta: {
@@ -478,7 +478,7 @@ export const routePages: Record<string, RoutePageData> = {
     title: 'Contact',
     intro: 'Write to us to ask about availability, fishing and hunting programs, lodge stays, or private gatherings.',
     hero: image(
-      '/assets/rincon/hero-limay.webp',
+      '/assets/rincon/optimized/hero-limay.webp',
       'The Limay River beside Rincón Grande',
     ),
     sections: [
