@@ -32,7 +32,7 @@
   --heading-font: 'Aujournuit', Georgia, serif;
   --label-font: 'Geist', Arial, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --rincon-mark-scale: 1.5;
+  --rincon-mark-scale: 1.4625;
 }
 
 *,
